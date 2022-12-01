@@ -1,0 +1,2 @@
+# Executes commands at ending of initial progress
+# Will be read when starting as a login shell
