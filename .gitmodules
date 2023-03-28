@@ -1,0 +1,3 @@
+[submodule "nyxt/extensions/nx-search-engines"]
+	path = nyxt/extensions/nx-search-engines
+	url = https://github.com/aartaka/nx-search-engines

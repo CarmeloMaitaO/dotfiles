@@ -54,3 +54,4 @@ xwallpaper --stretch ~/.local/share/bg &
 redshift &
 sxhkd &
 exec dwm
+#exec awesome

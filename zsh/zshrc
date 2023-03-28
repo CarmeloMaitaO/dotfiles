@@ -43,8 +43,12 @@ alias ytdl='yt-dlp --yes-playlist --download-archive ./.listd -a ./.list'
 alias ytlist='ytdl -o ./%(playlist_title)s/%(title)s.%(ext)s'
 alias yts="yt-dlp -f 'mp4[height<=480]/bv[height<=480]+ba' --merge-output-format mp4"
 alias ytal='yt-dlp -f "m4a/ba" -o "%(playlist)s/%(title)s.%(ext)s"'
+alias yta='yt-dlp -f "m4a/ba" -o %(title)s.%(ext)s'
 alias ytalmp3='yt-dlp -f "mp3" -o "%(playlist)s/%(title)s.%(ext)s"'
 alias ytamp3='yt-dlp -f "mp3"'
+alias ytchannelbatch="yt-dlp -f 'mp4[height<=480]/bv[height<=480]+ba' --merge-output-format mp4 -o './%(channel)s/%(video_autonumber)04d.%(title)s.%(ext)s' -a"
+# neocities
+alias neo='bashcities -p carmelomaita'
 
 ## Shortcuts to folders ##
 alias cdt='cd /home/chiguire/software/trabajo'
