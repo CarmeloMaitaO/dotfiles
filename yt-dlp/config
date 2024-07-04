@@ -1,6 +1,0 @@
---ignore-errors
---continue
---concurrent-fragments 4
---sub-langs en,es
---write-auto-subs
---embed-subs
