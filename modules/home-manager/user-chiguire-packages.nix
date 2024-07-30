@@ -1,0 +1,66 @@
+{ config, lib, pkgs, ... }:
+{
+  config = {
+    environment.systemPackages = with pkgs; [
+      floorp
+      firefox
+      openscad
+      freecad
+      brlcad
+      tuba
+      vesktop
+      whatsapp-for-linux
+      telegram-desktop
+      evolution
+      p7zip
+      collision
+      gnome-decoder
+      neovim
+      bruno
+      sequeler
+      citations
+      libreoffice
+      varia
+      parabolic
+      aria
+      foliate
+      gnucash
+      prismlauncher
+      cool-retro-term
+      nethack
+      shattered-pixel-dungeon
+      git
+      imagemagickBig
+      conjure
+      krita
+      inkscape
+      switcheroo
+      ventoy
+      dialect
+      eartag
+      paper-clip
+      blender
+      bisq-desktop
+      monero-gui
+      clapper
+      citations
+      logseq
+      geogebra
+      gnome-graphs
+      blanket
+      solanum
+      gnome-obfuscate
+      metadata-cleaner
+      gnupg
+      gnome.gnome-software
+      pika-backup
+      gnome-secrets
+      ffmpeg-full
+      video-trimmer
+      pitivi
+      freetube
+      newsflash
+      wike
+    ];
+  };
+}

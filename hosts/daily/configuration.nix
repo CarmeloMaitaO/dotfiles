@@ -3,12 +3,10 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, inputs, modulesPath, ... }:
-
 {
   imports =
     [ 
       ./hardware-configuration.nix
-
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -17,5 +15,4 @@
   networking.hostName = "Daily";
 
   system.stateVersion = "23.11";
-
 }

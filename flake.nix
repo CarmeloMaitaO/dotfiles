@@ -47,32 +47,8 @@
           ./modules/nixos/video-conf.nix
           ./modules/nixos/qemu-conf.nix
           ./modules/nixos/shell-zsh.nix
-          ./modules/nixos/packages-documents.nix
-          ./modules/nixos/packages-graphics.nix
-          ./modules/nixos/packages-metadata.nix
+	  ./modules/nixos/waydroid.nix
           ./modules/nixos/printing.nix
-          ./modules/nixos/packages-webclients.nix
-          ./modules/nixos/packages-browsers.nix
-          ./modules/nixos/packages-communications.nix
-          ./modules/nixos/packages-cryptography.nix
-          ./modules/nixos/packages-ebooks.nix
-          ./modules/nixos/packages-games.nix
-          ./modules/nixos/packages-it-tools.nix
-          ./modules/nixos/packages-monero.nix
-          ./modules/nixos/packages-notes.nix
-          ./modules/nixos/packages-plotting.nix
-          ./modules/nixos/packages-privacy-utilities.nix
-          ./modules/nixos/packages-video-editing.nix
-          ./modules/nixos/packages-git.nix
-          ./modules/nixos/packages-compression.nix
-          ./modules/nixos/packages-develop-environment.nix
-          ./modules/nixos/packages-download-managers.nix
-          ./modules/nixos/packages-multimedia.nix
-          ./modules/nixos/packages-software-store.nix
-          ./modules/nixos/packages-vaults.nix
-          ./modules/nixos/packages-pomodoro.nix
-          ./modules/nixos/packages-finances.nix
-          ./modules/nixos/packages-languages.nix
         ];
       };
       tools = nixpkgs.lib.nixosSystem {

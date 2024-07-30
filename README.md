@@ -84,13 +84,16 @@ Enables audio and Pipewire with Alsa/Pulseaudio support.
 
 Enables OpenGL.
 
-### steam-conf
+### steam-conf.nix
 
 Enables Steam, GamescopeSession, Gamemode and sets the
 STEAM\_EXTRA\_COMPAT\_TOOLS\_PATH environment variable.
 
-### packages-\*.nix
+### waydroid.nix
 
-All the files with the *packages* prefix only install programs associated with
-the suffix. They are a way to organize the installation of packages for multiple
-machines. Modify as you see fit.
+Enables Waydroid. You still will need to run after switching:
+```bash
+sudo waydroid init
+# Or
+sudo waydroid init -s GAPPS -f
+```
