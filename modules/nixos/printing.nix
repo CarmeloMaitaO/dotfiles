@@ -18,7 +18,7 @@
       ];
     };
     environment.systemPackages = with pkgs; [
-      gnome.simple-scan
+      simple-scan
     ];
 
     hardware.sane.enable = true;
@@ -33,7 +33,7 @@
       pkgs.utsushi
     ];
     services.avahi.enable = true;
-    services.avahi.nssmdns = true;
+    services.avahi.nssmdns4 = true;
   };
 }
 
