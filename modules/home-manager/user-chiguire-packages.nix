@@ -4,14 +4,14 @@
     environment.systemPackages = with pkgs; [
       floorp
       firefox
-      openscad
-      freecad
-      brlcad
+      #openscad
+      #freecad
+      #brlcad
       tuba
       vesktop
       whatsapp-for-linux
       telegram-desktop
-      evolution
+      #evolution
       p7zip
       collision
       gnome-decoder
@@ -39,7 +39,7 @@
       dialect
       eartag
       paper-clip
-      blender
+      #blender
       bisq-desktop
       monero-gui
       clapper
