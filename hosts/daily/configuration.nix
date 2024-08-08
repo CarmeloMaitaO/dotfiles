@@ -14,7 +14,7 @@
 
   networking.hostName = "Daily";
 
-  inputs.stylix = {
+  stylix = {
     enable = true;
     image = inputs.bg-gaming;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
