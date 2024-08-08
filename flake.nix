@@ -61,6 +61,7 @@
 	  ./modules/nixos/waydroid.nix
           ./modules/nixos/printing.nix
           /home/chiguire/.wireguard/kerodon/wireguard-kerodon-0.nix
+	  inputs.stylix.nixosModules.stylix
         ];
       };
       tools = nixpkgs.lib.nixosSystem {
