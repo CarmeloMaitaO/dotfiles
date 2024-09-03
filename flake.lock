@@ -114,7 +114,19 @@
         "type": "github"
       }
     },
-    "bg-gaming": {
+    "bg-chiguire": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-xn+GNi3uJyABOTJVWLTZYKL84Ujn1XhtmoL8SVFvlXQ=",
+        "type": "file",
+        "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/secluded-grove-pixel.png"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/secluded-grove-pixel.png"
+      }
+    },
+    "bg-picure": {
       "flake": false,
       "locked": {
         "narHash": "sha256-xn+GNi3uJyABOTJVWLTZYKL84Ujn1XhtmoL8SVFvlXQ=",
@@ -431,7 +443,8 @@
     },
     "root": {
       "inputs": {
-        "bg-gaming": "bg-gaming",
+        "bg-chiguire": "bg-chiguire",
+        "bg-picure": "bg-picure",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",

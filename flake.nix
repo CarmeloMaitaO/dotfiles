@@ -33,7 +33,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    bg-gaming = {
+    bg-picure = {
+      url = "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/secluded-grove-pixel.png";
+      flake = false;
+    };
+
+    bg-chiguire = {
       url = "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/secluded-grove-pixel.png";
       flake = false;
     };
@@ -41,25 +46,28 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
-      daily = nixpkgs.lib.nixosSystem {
+      capybara = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/daily/configuration.nix
-          ./modules/home-manager/user-chiguire.nix
-          ./modules/nixos/dm-lightdm.nix
-          ./modules/nixos/de-budgie.nix
-          ./modules/nixos/flatpak-conf.nix
-          ./modules/nixos/locale-ve.nix
-          ./modules/nixos/keymap-us.nix
-          ./modules/nixos/networking.nix
-          ./modules/nixos/nix-settings.nix
-          ./modules/nixos/sound.nix
-          ./modules/nixos/steam-conf.nix
-          ./modules/nixos/video-conf.nix
-          ./modules/nixos/qemu-conf.nix
-          ./modules/nixos/shell-zsh.nix
-	  ./modules/nixos/waydroid.nix
-          ./modules/nixos/printing.nix
+          ./hosts/capybara/configuration.nix
+          ./hm-modules/user-chiguire.nix
+	  ./nixos-modules/essentials.nix
+	  ./nixos-modules/desktop-essentials.nix
+	  ./nixos-modules/programs.nix
+          #./modules/nixos/dm-lightdm.nix
+          #./modules/nixos/de-budgie.nix
+          #./modules/nixos/flatpak-conf.nix
+          #./modules/nixos/locale-ve.nix
+          #./modules/nixos/keymap-us.nix
+          #./modules/nixos/networking.nix
+          #./modules/nixos/nix-settings.nix
+          #./modules/nixos/sound.nix
+          #./modules/nixos/steam-conf.nix
+          #./modules/nixos/video-conf.nix
+          #./modules/nixos/qemu-conf.nix
+          #./modules/nixos/shell-zsh.nix
+	  #./modules/nixos/waydroid.nix
+          #./modules/nixos/printing.nix
           /home/chiguire/.wireguard/kerodon/wireguard-kerodon-0.nix
 	  inputs.stylix.nixosModules.stylix
         ];

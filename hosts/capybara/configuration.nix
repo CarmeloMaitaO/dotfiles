@@ -14,6 +14,27 @@
 
   networking.hostName = "Daily";
 
+  essentials = {
+    localeVE = true;
+    keymapUS = true;
+    networking = true;
+    nix = true;
+    fish = true;
+  };
+  programs = {
+    steam = true;
+  };
+  desktopEssentials = {
+    flatpak = true;
+    audio = true;
+    graphics = true;
+    virtualisation = true;
+    printing = true;
+  };
+  desktopEnvironment = {
+    budgie = true;
+    lightDM = true;
+  };
   stylix = {
     enable = true;
     image = inputs.bg-gaming;
