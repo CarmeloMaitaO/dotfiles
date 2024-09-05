@@ -18,7 +18,7 @@
     localeVE = true;
     keymapUS = true;
     networking = true;
-    nix = true;
+    nixconf = true;
     fish = true;
   };
   programs = {
