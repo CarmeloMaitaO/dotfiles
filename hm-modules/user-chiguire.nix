@@ -4,7 +4,7 @@
     isNormalUser = true;
     description = "chiguire";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "scanner" "lp" ];
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
   };
   imports = [
     ./user-chiguire-packages.nix

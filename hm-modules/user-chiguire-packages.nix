@@ -61,6 +61,21 @@
       freetube
       newsflash
       wike
+      amberol
+      brasero
+      colmena
+      evolution
+      gnupg
+      keeweb
+      ldns
+      nmap
+      pomodoro-gtk
+      solanum
+      rdap
+      whois
+      wireguard-tools
+      zapzap
+      yt-dlp
     ];
   };
 }
