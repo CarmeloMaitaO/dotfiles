@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
-with pkgs; {
-  config = {
-    imports = [
-      ./modules/steam.nix
-    ];
-  };
+{
+  imports = [
+    ./modules/steam.nix
+  ];
 }
