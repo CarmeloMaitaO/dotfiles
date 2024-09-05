@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-{
+with pkgs; {
   config = {
     imports = [
       ./modules/locale-ve.nix
