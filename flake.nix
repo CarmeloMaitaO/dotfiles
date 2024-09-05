@@ -39,13 +39,14 @@
     };
 
     bg-chiguire = {
-      url = "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/secluded-grove-pixel.png";
+      url = "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/wall_secondary.png";
       flake = false;
     };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
+
       capybara = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
@@ -54,47 +55,11 @@
 	  ./nixos-modules/essentials.nix
 	  ./nixos-modules/desktop-essentials.nix
 	  ./nixos-modules/programs.nix
-          #./modules/nixos/dm-lightdm.nix
-          #./modules/nixos/de-budgie.nix
-          #./modules/nixos/flatpak-conf.nix
-          #./modules/nixos/locale-ve.nix
-          #./modules/nixos/keymap-us.nix
-          #./modules/nixos/networking.nix
-          #./modules/nixos/nix-settings.nix
-          #./modules/nixos/sound.nix
-          #./modules/nixos/steam-conf.nix
-          #./modules/nixos/video-conf.nix
-          #./modules/nixos/qemu-conf.nix
-          #./modules/nixos/shell-zsh.nix
-	  #./modules/nixos/waydroid.nix
-          #./modules/nixos/printing.nix
           /home/chiguire/.wireguard/kerodon/wireguard-kerodon-0.nix
 	  inputs.stylix.nixosModules.stylix
         ];
       };
-      tools = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/gaming/configuration.nix
-	        ./modules/home-manager/user-chiguire.nix
-	        ./modules/nixos/boot.nix
-	        ./modules/nixos/desktop-environment.nix
-	        ./modules/nixos/essential-packages.nix
-	        ./modules/nixos/flatpak-conf.nix
-	        ./modules/nixos/locale.nix
-	        ./modules/nixos/networking.nix
-	        ./modules/nixos/nix-settings.nix
-	        ./modules/nixos/sound.nix
-	        ./modules/nixos/steam-conf.nix
-          ./modules/nixos/variables.nix
-          ./modules/nixos/video-conf.nix
-          ./modules/nixos/qemu-conf.nix
-          #inputs.home-manager.nixosModules.default
-          #inputs.stylix.homeManagerModules.stylix
-          #inputs.stylix.nixosModules.stylix
-          #inputs.nixvim.nixosModules.nixvim
-        ];
-      };
+
     };
   };
 }

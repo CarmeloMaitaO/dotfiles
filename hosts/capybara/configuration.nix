@@ -12,29 +12,21 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "Daily";
+  networking.hostName = "Capybara";
 
-  essentials = {
-    localeVE = true;
-    keymapUS = true;
-    networking = true;
-    nixconf = true;
-    fish = true;
-  };
-  programs = {
-    steam = true;
-  };
-  desktopEssentials = {
-    flatpak = true;
-    audio = true;
-    graphics = true;
-    virtualisation = true;
-    printing = true;
-  };
-  desktopEnvironment = {
-    budgie = true;
-    lightDM = true;
-  };
+  localeVE.enable = true;
+  keymapUS.enable = true;
+  networking.enable = true;
+  nixconf.enable = true;
+  fish.enable = true;
+  steam.enable = true;
+  flatpak.enable = true;
+  audio.enable = true;
+  graphics.enable = true;
+  virtualisation.enable = true;
+  printing.enable = true;
+  budgie.enable = true;
+  lightDM.enable = true;
   stylix = {
     enable = true;
     image = inputs.bg-gaming;

@@ -117,13 +117,13 @@
     "bg-chiguire": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-xn+GNi3uJyABOTJVWLTZYKL84Ujn1XhtmoL8SVFvlXQ=",
+        "narHash": "sha256-0IH9EH/G5cebRZFybBR7o14bDaFrX9sWIoT757uTrBo=",
         "type": "file",
-        "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/secluded-grove-pixel.png"
+        "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/wall_secondary.png"
       },
       "original": {
         "type": "file",
-        "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/secluded-grove-pixel.png"
+        "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/wall_secondary.png"
       }
     },
     "bg-picure": {
