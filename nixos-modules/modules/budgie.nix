@@ -4,7 +4,7 @@
     budgie.enable = lib.mkEnableOption "Enables the Budgie DE";
   };
 
-  config = lib.mkIf config.lib.enable {
+  config = lib.mkIf config.budgie.enable {
     # Budgie
     services.xserver.desktopManager = {
       enable = true;
