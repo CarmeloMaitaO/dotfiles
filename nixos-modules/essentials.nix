@@ -6,5 +6,6 @@
     ./modules/networking.nix
     ./modules/nixconf.nix
     ./modules/fish.nix
+    ./modules/disable-rpfilter.nix
   ];
 }

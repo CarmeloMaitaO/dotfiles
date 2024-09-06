@@ -27,6 +27,7 @@
   printing.enable = true;
   budgie.enable = true;
   lightdm.enable = true;
+  disableRPFilter.enable = true;
   stylix = {
     enable = true;
     image = inputs.bg-picure;

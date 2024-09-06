@@ -77,6 +77,7 @@
       whois
       wireguard-tools
       yt-dlp
+      inputs.zen-browser.packages."${system}".generic
     ];
   };
 }
