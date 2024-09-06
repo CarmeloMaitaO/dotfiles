@@ -6,7 +6,7 @@
 
   config = lib.mkIf config.budgie.enable {
     # Budgie
-    services.xserver.desktopManager = {
+    services.xserver.desktopManager.budgie = {
       enable = true;
     };
     programs.dconf = {
