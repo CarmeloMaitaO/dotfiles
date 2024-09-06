@@ -13,7 +13,7 @@
       };
     };
     console = {
-      keymap = "us-acentos";
+      keyMap = "us-acentos";
     };
   };
 }
