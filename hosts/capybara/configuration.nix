@@ -17,9 +17,9 @@
   localeVE.enable = true;
   keymapUS.enable = true;
   networking.enable = true;
-  #nixconf.enable = true;
-  #fish.enable = true;
-  #steam.enable = true;
+  nixconf.enable = true;
+  fish.enable = true;
+  steam.enable = true;
   #flatpak.enable = true;
   #audio.enable = true;
   #graphics.enable = true;
