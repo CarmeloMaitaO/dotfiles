@@ -5,6 +5,7 @@
       floorp
       firefox
       yazi
+      nemo
       #openscad
       #freecad
       #brlcad
