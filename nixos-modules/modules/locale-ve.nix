@@ -4,7 +4,7 @@
     localeVE.enable = lib.mkEnableOption "Sets the locales for VE";
   };
 
-  config = mkIf config.localeVE.enable {
+  config = lib.mkIf config.localeVE.enable {
     # Locale VE
     time = {
       timeZone = "America/Caracas";
