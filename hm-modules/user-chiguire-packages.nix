@@ -4,6 +4,7 @@
     environment.systemPackages = with pkgs; [
       floorp
       firefox
+      yazi
       #openscad
       #freecad
       #brlcad
