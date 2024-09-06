@@ -14,7 +14,7 @@
 
   networking.hostName = "Capybara";
 
-  localeVE.localeVE.enable = true;
+  localeVE.enable = true;
   #keymapUS.enable = true;
   #networking.enable = true;
   #nixconf.enable = true;
