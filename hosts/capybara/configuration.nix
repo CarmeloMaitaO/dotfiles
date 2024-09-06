@@ -15,8 +15,8 @@
   networking.hostName = "Capybara";
 
   localeVE.enable = true;
-  #keymapUS.enable = true;
-  #networking.enable = true;
+  keymapUS.enable = true;
+  networking.enable = true;
   #nixconf.enable = true;
   #fish.enable = true;
   #steam.enable = true;
