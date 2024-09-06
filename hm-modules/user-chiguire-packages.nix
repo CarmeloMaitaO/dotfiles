@@ -7,6 +7,8 @@
       #openscad
       #freecad
       #brlcad
+      kitty
+      foot
       tuba
       vesktop
       whatsapp-for-linux
@@ -74,7 +76,6 @@
       rdap
       whois
       wireguard-tools
-      zapzap
       yt-dlp
     ];
   };
