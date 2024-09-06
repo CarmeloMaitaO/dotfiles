@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.steam;
-in
-
-with pkgs.lib; {
+{
   options = {
-    steam.enable = mkEnableOption "Enables Steam";
+    steam.enable = lib.mkEnableOption "Enables Steam";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.steam.enable {
     # Steam
     programs.steam = {
       enable = true;
