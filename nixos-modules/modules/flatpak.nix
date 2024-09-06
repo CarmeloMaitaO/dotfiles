@@ -7,6 +7,7 @@
   config = lib.mkIf config.flatpak.enable {
     # Flatpak
     services.flatpak.enable = true;
+    xdg.portal.enable;
   };
 }
 
