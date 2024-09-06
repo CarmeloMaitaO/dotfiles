@@ -17,7 +17,7 @@
         vlc
 	xterm
 	mate.mate-terminal
-	mate.nemo
+	nemo
 	mate.pluma
 	mate.atril
 	mate.engrampa
