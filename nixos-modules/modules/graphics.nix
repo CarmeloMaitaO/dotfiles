@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.graphics;
-in
-
-with pkgs.lib; {
+{
   options = {
-    graphics.enable = mkEnableOption "Enables HW Acceleration and install Intel's GPU drivers";
+    graphics.enable = lib.mkEnableOption "Enables HW Acceleration and install Intel's GPU drivers";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.graphics.enable {
     # Graphics
     hardware.graphics = {
       enable = true;

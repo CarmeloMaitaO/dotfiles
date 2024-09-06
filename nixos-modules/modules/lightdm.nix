@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.lightdm;
-in
-
-with pkgs.lib; {
+{
   options = {
-    lightdm.enable = mkEnableOption "Enables LightDM";
+    lightdm.enable = lib.mkEnableOption "Enables LightDM";
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf config.lightdm.enable {
     # LightDM
     services.xserver = {
       enable = true;

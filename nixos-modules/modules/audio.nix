@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.audio;
-in
-
-with pkgs.lib; {
+{
   options = {
-    audio.enable = mkEnableOption "Enables Pipewire";
+    audio.enable = lib.mkEnableOption "Enables Pipewire";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.audio.enable {
     # Audio
     hardware.pulseaudio = {
       enable = false;

@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.budgie;
-in
-
-with pkgs.lib; {
+{
   options = {
-    budgie.enable = mkEnableOption "Enables the Budgie DE";
+    budgie.enable = lib.mkEnableOption "Enables the Budgie DE";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.lib.enable {
     # Budgie
     services.xserver.desktopManager = {
       enable = true;

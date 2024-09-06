@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.printing;
-in
-
-with pkgs.lib; {
+{
   options = {
-    printing.enable = mkEnableOption "Enables everything necessary for printing"; # It just works
+    printing.enable = lib.mkEnableOption "Enables everything necessary for printing"; # It just works
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.printing.enable {
     # Printing 
     services.printing = {
       enable = true;

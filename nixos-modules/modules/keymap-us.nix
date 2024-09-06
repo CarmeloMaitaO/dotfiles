@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.keymapUS;
-in
-
-with pkgs.lib; {
+{
   options = {
-    keymapUS.enable = mkEnableOption "Sets the keyboard distribution to US-intl";
+    keymapUS.enable = lib.mkEnableOption "Sets the keyboard distribution to US-intl";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.keymapUS.enable {
     # Keymap US
     services.xserver = {
       xkb = {

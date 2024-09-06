@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.flatpak;
-in
-
-with pkgs.lib; {
+{
   options = {
-    flatpak.enable = mkEnableOption "Enables flatpak";
+    flatpak.enable = lib.mkEnableOption "Enables flatpak";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.flatpak.enable {
     # Flatpak
     services.flatpak.enable = true;
   };

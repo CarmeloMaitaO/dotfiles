@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.fish;
-in
-
-with pkgs.lib; {
+{
   options = {
-    fish.enable = mkEnableOption "Sets Fish as the program to execute at the start of every Bash interactive shell";
+    fish.enable = lib.mkEnableOption "Sets Fish as the program to execute at the start of every Bash interactive shell";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.fish.enable {
     # Fish
     programs.fish = {
       enable = true;

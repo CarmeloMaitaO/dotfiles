@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.networking;
-in
-
-with pkgs.lib; {
+{
   options = {
-    networking.enable = mkEnableOption "Enables Networkmanager";
+    networking.enable = lib.mkEnableOption "Enables Networkmanager";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.networking.enable {
     # Networking
     networking.networkmanager = {
       enable = true;

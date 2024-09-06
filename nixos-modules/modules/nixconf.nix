@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.nixconf;
-in
-
-with pkgs.lib; {
+{
   options = {
-    nixconf.enable = mkEnableOption "Enables flakes, adds substituters, and allow unfree and broken packages in nix";
+    nixconf.enable = lib.mkEnableOption "Enables flakes, adds substituters, and allow unfree and broken packages in nix";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.nixconf.enable {
     # Nix
     nixpkgs.config = {
       allowUnfree = true;

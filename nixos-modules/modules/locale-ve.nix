@@ -1,15 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  cfg = config.localeVE;
-in
-
-with pkgs.lib; {
+{
   options = {
-    localeVE.enable = mkEnableOption "Sets the locales for VE";
+    localeVE.enable = lib.mkEnableOption "Sets the locales for VE";
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf config.localeVE.enable {
     # Locale VE
     time = {
       timeZone = "America/Caracas";

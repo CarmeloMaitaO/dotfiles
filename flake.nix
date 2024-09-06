@@ -52,8 +52,8 @@
         modules = [
           ./hosts/capybara/configuration.nix
           ./hm-modules/user-chiguire.nix
-	  #./nixos-modules/essentials.nix
-	  #./nixos-modules/desktop-essentials.nix
+	  ./nixos-modules/essentials.nix
+	  ./nixos-modules/desktop-essentials.nix
 	  ./nixos-modules/programs-bundle.nix
           /home/chiguire/.wireguard/kerodon/wireguard-kerodon-0.nix
 	  inputs.stylix.nixosModules.stylix
