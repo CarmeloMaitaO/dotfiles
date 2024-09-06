@@ -20,7 +20,7 @@
     };
     users = {
       defaultUserShell = pkgs.bash;
-      users.users.root.shell = pkgs.bash;
+      users.root.shell = pkgs.bash;
     };
   };
 }
