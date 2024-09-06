@@ -26,7 +26,7 @@
   virtualisation.enable = true;
   printing.enable = true;
   budgie.enable = true;
-  lightDM.enable = true;
+  lightdm.enable = true;
   stylix = {
     enable = true;
     image = inputs.bg-gaming;
