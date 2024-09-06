@@ -10,8 +10,8 @@
       kvmgt.enable = true;
       waydroid.enable = true;
       libvirtd.enable = true;
-      virt-manager.enable = true;
     };
+    programs.virt-manager.enable = true;
   };
 }
 
