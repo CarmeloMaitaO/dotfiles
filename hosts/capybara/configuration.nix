@@ -25,7 +25,7 @@
   graphics.enable = true;
   virtualisation.enable = true;
   printing.enable = true;
-  #budgie.enable = true;
+  budgie.enable = true;
   #lightDM.enable = true;
   stylix = {
     enable = true;
