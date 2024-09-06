@@ -14,19 +14,19 @@
 
   networking.hostName = "Capybara";
 
-  localeVE.enable = true;
-  keymapUS.enable = true;
-  networking.enable = true;
-  nixconf.enable = true;
-  fish.enable = true;
-  steam.enable = true;
-  flatpak.enable = true;
-  audio.enable = true;
-  graphics.enable = true;
-  virtualisation.enable = true;
-  printing.enable = true;
-  budgie.enable = true;
-  lightDM.enable = true;
+  localeVE.localeVE.enable = true;
+  #keymapUS.enable = true;
+  #networking.enable = true;
+  #nixconf.enable = true;
+  #fish.enable = true;
+  #steam.enable = true;
+  #flatpak.enable = true;
+  #audio.enable = true;
+  #graphics.enable = true;
+  #virtualisation.enable = true;
+  #printing.enable = true;
+  #budgie.enable = true;
+  #lightDM.enable = true;
   stylix = {
     enable = true;
     image = inputs.bg-gaming;
