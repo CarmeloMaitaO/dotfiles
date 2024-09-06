@@ -29,7 +29,7 @@
   lightdm.enable = true;
   stylix = {
     enable = true;
-    image = inputs.bg-gaming;
+    image = inputs.bg-picure;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     fonts = {
       serif = {
