@@ -9,7 +9,7 @@
     services.flatpak.enable = true;
     xdg.portal = {
       enable = true;
-      portal.extraPortals = with pkgs; [
+      extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
         xdg-desktop-portal-xapp
         xdg-desktop-portal-gnome
