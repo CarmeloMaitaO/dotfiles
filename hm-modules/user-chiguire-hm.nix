@@ -7,7 +7,19 @@
     packages = with pkgs; [
       floorp
       firefox
+      fluffychat
+      # yazi
       yazi
+      poppler
+      jq
+      ffmpegthumbnailer
+      fd
+      ripgrep
+      fzf
+      wl-clipboard
+      xclip
+      imagemagick
+      #
       nemo
       #openscad
       #freecad
@@ -37,7 +49,6 @@
       nethack
       shattered-pixel-dungeon
       git
-      imagemagickBig
       conjure
       krita
       inkscape
@@ -62,7 +73,7 @@
       gnome.gnome-software
       pika-backup
       gnome-secrets
-      ffmpeg-full
+      ffmpeg
       video-trimmer
       pitivi
       freetube
@@ -83,30 +94,37 @@
       wireguard-tools
       yt-dlp
       inputs.zen-browser.packages."${system}".generic
+      gruvbox-plus-icons
+      nerdfonts
     ];
   };
   stylix = {
     enable = true;
     image = inputs.bg-chiguire;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 32;
+    };
     fonts = {
       serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
+        package = pkgs.nerdfonts;
+        name = "0xProto";
       };
 
       sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
+        package = pkgs.nerdfonts;
+        name = "Go Mono";
       };
 
       monospace = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans Mono";
+        package = pkgs.nerdfonts;
+        name = "0xProto";
       };
 
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.nerdfonts;
         name = "Noto Color Emoji";
       };
     };
