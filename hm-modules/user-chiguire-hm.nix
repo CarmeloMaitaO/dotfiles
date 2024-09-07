@@ -98,7 +98,7 @@
       nerdfonts
     ];
   };
-  gtk.icontheme = {
+  gtk.iconTheme = {
     package = pkgs.gruvbox-plus-icons;
     name = "Gruvbox-Plus-Dark";
   };
