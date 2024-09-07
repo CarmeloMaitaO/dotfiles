@@ -8,6 +8,7 @@
       floorp
       firefox
       fluffychat
+      nitch
       # yazi
       yazi
       poppler
