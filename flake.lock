@@ -126,16 +126,16 @@
         "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/wall_secondary.png"
       }
     },
-    "bg-picure": {
+    "bg-system": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-xn+GNi3uJyABOTJVWLTZYKL84Ujn1XhtmoL8SVFvlXQ=",
+        "narHash": "sha256-ZEahj7DcJeYOFketcvowIHosLdZR+2EVlPqSfd/wtyA=",
         "type": "file",
-        "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/secluded-grove-pixel.png"
+        "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/minimalistic/gruvbox-nix.png"
       },
       "original": {
         "type": "file",
-        "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/secluded-grove-pixel.png"
+        "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/minimalistic/gruvbox-nix.png"
       }
     },
     "devshell": {
@@ -460,7 +460,7 @@
     "root": {
       "inputs": {
         "bg-chiguire": "bg-chiguire",
-        "bg-picure": "bg-picure",
+        "bg-system": "bg-system",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",

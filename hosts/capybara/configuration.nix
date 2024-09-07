@@ -36,6 +36,8 @@
   stylix = {
     enable = true;
     image = inputs.bg-system;
+    targets.grub.enable = true;
+    targets.grub.useImage = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     fonts = {
       serif = {
