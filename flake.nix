@@ -58,6 +58,7 @@
 	  ./nixos-modules/desktop-essentials.nix
 	  ./nixos-modules/programs-bundle.nix
 	  inputs.stylix.nixosModules.stylix
+	  inputs.home-manager.nixosModules.default
         ];
       };
 
