@@ -62,7 +62,7 @@
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 	    home-manager.users.chiguire = import ./hm-modules/user-chiguire-hm.nix;
-	  };
+	  }
         ];
       };
 
