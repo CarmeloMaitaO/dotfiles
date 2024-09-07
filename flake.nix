@@ -58,7 +58,8 @@
 	  ./nixos-modules/desktop-essentials.nix
 	  ./nixos-modules/programs-bundle.nix
 	  inputs.stylix.nixosModules.stylix
-	  inputs.home-manager.nixosModules {
+	  inputs.home-manager.nixosModules.home-manager
+	  {
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 	    home-manager.users.chiguire = import ./hm-modules/user-chiguire-hm.nix;
