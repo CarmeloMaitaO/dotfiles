@@ -60,6 +60,7 @@
 	  inputs.stylix.nixosModules.stylix
 	  inputs.home-manager.nixosModules.home-manager
 	  {
+	    home-manager.extraSpecialArgs = { inherit inputs; };
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 	    home-manager.users.chiguire = import ./hm-modules/user-chiguire-hm.nix;
