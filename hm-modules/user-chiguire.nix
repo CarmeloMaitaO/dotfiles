@@ -6,7 +6,7 @@
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "scanner" "lp" ];
     shell = pkgs.bash;
   };
-  imports = [
-    ./user-chiguire-packages.nix
-  ];
+  #imports = [
+  #  ./user-chiguire-packages.nix
+  #];
 }

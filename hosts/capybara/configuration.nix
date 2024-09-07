@@ -7,7 +7,6 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -29,6 +28,7 @@
   budgie.enable = true;
   lightdm.enable = true;
   disableRPFilter.enable = true;
+
   stylix = {
     enable = true;
     image = inputs.bg-picure;
