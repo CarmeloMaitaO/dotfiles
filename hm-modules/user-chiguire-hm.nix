@@ -111,17 +111,17 @@
     fonts = {
       serif = {
         package = pkgs.nerdfonts;
-        name = "0xProto";
+        name = "0xProto Nerd Font Regular";
       };
 
       sansSerif = {
         package = pkgs.nerdfonts;
-        name = "Go Mono";
+        name = "Go Mono Nerd Font Regular";
       };
 
       monospace = {
         package = pkgs.nerdfonts;
-        name = "0xProto";
+        name = "0xProto Nerd Font Regular";
       };
 
       emoji = {
