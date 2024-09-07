@@ -9,6 +9,10 @@
       ./hardware-configuration.nix
     ];
 
+  environment.systemPackages = [
+    pkgs.git
+  ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

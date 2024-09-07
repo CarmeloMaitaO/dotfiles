@@ -84,7 +84,7 @@
       yt-dlp
       inputs.zen-browser.packages."${system}".generic
     ];
-    stylix = {
+    inputs.stylix = {
       enable = true;
       image = inputs.bg-chiguire;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
