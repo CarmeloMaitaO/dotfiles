@@ -95,9 +95,12 @@
       wireguard-tools
       yt-dlp
       inputs.zen-browser.packages."${system}".generic
-      gruvbox-plus-icons
       nerdfonts
     ];
+  };
+  gtk.icontheme = {
+    package = pkgs.gruvbox-plus-icons;
+    name = "Gruvbox-Plus-Dark";
   };
   stylix = {
     enable = true;
@@ -121,7 +124,7 @@
 
       monospace = {
         package = pkgs.nerdfonts;
-        name = "0xProto Nerd Font Regular";
+        name = "0xProto Nerd Font Mono Regular";
       };
 
       emoji = {
