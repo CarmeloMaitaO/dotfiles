@@ -37,27 +37,27 @@
     enable = true;
     image = inputs.bg-system;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    #fonts = {
-    #  serif = {
-    #    package = pkgs.nerdfonts;
-    #    name = "0xProto Nerd Font Regular";
-    #  };
+    fonts = {
+      serif = {
+        package = pkgs.nerdfonts;
+        name = "0xProto Nerd Font Regular";
+      };
 
-    #  sansSerif = {
-    #    package = pkgs.nerdfonts;
-    #    name = "Go Mono Nerd Font Regular";
-    #  };
+      sansSerif = {
+        package = pkgs.nerdfonts;
+        name = "Go Mono Nerd Font Regular";
+      };
 
-    #  monospace = {
-    #    package = pkgs.nerdfonts;
-    #    name = "0xProto Nerd Font Mono Regular";
-    #  };
+      monospace = {
+        package = pkgs.nerdfonts;
+        name = "0xProto Nerd Font Mono Regular";
+      };
 
-    #  emoji = {
-    #    package = pkgs.nerdfonts;
-    #    name = "Noto Color Emoji";
-    #  };
-    #};
+      emoji = {
+        package = pkgs.nerdfonts;
+        name = "Noto Color Emoji";
+      };
+    };
   };
 
   system.stateVersion = "23.11";
