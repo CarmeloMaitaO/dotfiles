@@ -4,12 +4,6 @@
     username = "chiguire";
     homeDirectory = "/home/chiguire";
     stateVersion = "23.11";
-    programs = {
-      kitty = {
-        enable = true;
-	shellIntegration.enableFishIntegration = true;
-      };
-    };
     packages = with pkgs; [
       floorp
       fluffychat
@@ -102,6 +96,12 @@
       inputs.zen-browser.packages."${system}".generic
       nerdfonts
     ];
+  };
+  programs = {
+    kitty = {
+      enable = true;
+      shellIntegration.enableFishIntegration = true;
+    };
   };
   gtk.iconTheme = {
     package = pkgs.gruvbox-plus-icons;
