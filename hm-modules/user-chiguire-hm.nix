@@ -4,6 +4,12 @@
     username = "chiguire";
     homeDirectory = "/home/chiguire";
     stateVersion = "23.11";
+    programs = {
+      kitty = {
+        enable = true;
+	shellIntegration.enableFishIntegration = true;
+      };
+    };
     packages = with pkgs; [
       floorp
       fluffychat
