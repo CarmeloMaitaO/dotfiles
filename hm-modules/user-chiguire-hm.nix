@@ -108,17 +108,17 @@
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
-      size = 32;
+      size = 24;
     };
     fonts = {
       serif = {
         package = pkgs.nerdfonts;
-        name = "0xProto Nerd Font Regular";
+        name = "Noto Serif Light";
       };
 
       sansSerif = {
         package = pkgs.nerdfonts;
-        name = "Go Mono Nerd Font Regular";
+        name = "Noto Sans Light";
       };
 
       monospace = {
