@@ -6,7 +6,6 @@
     stateVersion = "23.11";
     packages = with pkgs; [
       floorp
-      firefox
       fluffychat
       nitch
       # yazi
@@ -128,8 +127,8 @@
       };
 
       emoji = {
-        package = pkgs.nerdfonts;
-        name = "Noto Color Emoji";
+        package = pkgs.noto-fonts-monochrome-emoji;
+        name = "Noto Emoji";
       };
     };
   };

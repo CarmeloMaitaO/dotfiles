@@ -36,30 +36,28 @@
   stylix = {
     enable = true;
     image = inputs.bg-system;
-    targets.grub.enable = true;
-    targets.grub.useImage = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    fonts = {
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
+    #fonts = {
+    #  serif = {
+    #    package = pkgs.nerdfonts;
+    #    name = "0xProto Nerd Font Regular";
+    #  };
 
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
+    #  sansSerif = {
+    #    package = pkgs.nerdfonts;
+    #    name = "Go Mono Nerd Font Regular";
+    #  };
 
-      monospace = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans Mono";
-      };
+    #  monospace = {
+    #    package = pkgs.nerdfonts;
+    #    name = "0xProto Nerd Font Mono Regular";
+    #  };
 
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
-    };
+    #  emoji = {
+    #    package = pkgs.nerdfonts;
+    #    name = "Noto Color Emoji";
+    #  };
+    #};
   };
 
   system.stateVersion = "23.11";
