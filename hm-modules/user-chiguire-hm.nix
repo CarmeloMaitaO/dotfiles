@@ -28,18 +28,14 @@
       foot
       tuba
       vesktop
-      whatsapp-for-linux
       telegram-desktop
-      #evolution
       p7zip
-      collision
       gnome-decoder
       neovim
       bruno
       sequeler
       citations
       libreoffice
-      varia
       parabolic
       aria
       foliate
@@ -50,8 +46,8 @@
       shattered-pixel-dungeon
       git
       conjure
-      krita
-      inkscape
+      #krita
+      #inkscape
       switcheroo
       ventoy
       dialect
@@ -61,8 +57,6 @@
       bisq-desktop
       monero-gui
       clapper
-      citations
-      logseq
       geogebra
       gnome-graphs
       blanket
@@ -82,13 +76,10 @@
       amberol
       brasero
       colmena
-      evolution
       gnupg
       keeweb
       ldns
       nmap
-      pomodoro-gtk
-      solanum
       rdap
       whois
       wireguard-tools
