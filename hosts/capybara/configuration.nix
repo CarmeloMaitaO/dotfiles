@@ -40,7 +40,7 @@
         name = "Gruvbox-Plus-Dark";
       };
     } ];
-  };
+  }
   stylix = {
     enable = true;
     image = bg-system;
