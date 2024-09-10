@@ -63,6 +63,12 @@
 	    home-manager.extraSpecialArgs = { inherit inputs; };
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
+            home-manager.sharedModules = [ {
+              gtk.iconTheme = {
+                package = nixpkgs.legacyPackages.x86_64-linux.pkgs.gruvbox-plus-icons;
+                name = "Gruvbox-Plus-Dark";
+              };
+            } ];
 	    home-manager.users.chiguire = import ./hm-modules/user-chiguire-hm.nix;
 	  }
         ];

@@ -33,18 +33,10 @@
   lightdm.enable = true;
   disableRPFilter.enable = true;
 
-  home-manager.nixosModules.home-manager {
-    sharedModules = [ {
-      gtk.iconTheme = {
-        package = pkgs.gruvbox-plus-icons;
-        name = "Gruvbox-Plus-Dark";
-      };
-    } ];
-  }
   stylix = {
     enable = true;
-    image = bg-system;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
+    image = inputs.bg-chiguire;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
