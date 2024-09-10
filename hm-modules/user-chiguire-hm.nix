@@ -60,7 +60,7 @@
       geogebra
       gnome-graphs
       blanket
-      solanum
+      pomodoro-gtk
       gnome-obfuscate
       metadata-cleaner
       gnupg
