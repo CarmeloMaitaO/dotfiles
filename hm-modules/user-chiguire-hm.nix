@@ -103,39 +103,8 @@
       shellIntegration.enableFishIntegration = true;
     };
   };
-  gtk.iconTheme = {
-    package = pkgs.gruvbox-plus-icons;
-    name = "Gruvbox-Plus-Dark";
-  };
-  stylix = {
-    enable = true;
-    image = inputs.bg-chiguire;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 24;
-    };
-    fonts = {
-      serif = {
-        package = pkgs.nerdfonts;
-        name = "Noto Serif Light";
-      };
-
-      sansSerif = {
-        package = pkgs.nerdfonts;
-        name = "Noto Sans Light";
-      };
-
-      monospace = {
-        package = pkgs.nerdfonts;
-        name = "0xProto Nerd Font Mono Regular";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-monochrome-emoji;
-        name = "Noto Emoji";
-      };
-    };
-  };
+  #gtk.iconTheme = {
+  #  package = pkgs.gruvbox-plus-icons;
+  #  name = "Gruvbox-Plus-Dark";
+  #};
 }
