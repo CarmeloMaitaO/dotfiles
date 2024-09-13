@@ -26,7 +26,9 @@
       #brlcad
       kitty
       foot
+      wezterm
       tuba
+      anki
       vesktop
       telegram-desktop
       p7zip
@@ -64,13 +66,14 @@
       gnome-obfuscate
       metadata-cleaner
       gnupg
-      gnome.gnome-software
+      gnome-software
       pika-backup
       gnome-secrets
       ffmpeg
       video-trimmer
       pitivi
       freetube
+      spotify
       newsflash
       wike
       amberol
