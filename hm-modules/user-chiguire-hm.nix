@@ -5,7 +5,6 @@
     homeDirectory = "/home/chiguire";
     stateVersion = "23.11";
     packages = with pkgs; [
-      floorp
       fluffychat
       nitch
       # yazi
@@ -28,7 +27,6 @@
       foot
       wezterm
       tuba
-      anki
       vesktop
       telegram-desktop
       p7zip
