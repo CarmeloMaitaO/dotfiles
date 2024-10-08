@@ -5,6 +5,10 @@
     homeDirectory = "/home/chiguire";
     stateVersion = "23.11";
     packages = with pkgs; [
+      thunderbird-bin
+      itch
+      lutris
+      cartridges
       fluffychat
       nitch
       # yazi
