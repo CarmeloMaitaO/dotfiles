@@ -7,7 +7,6 @@
     packages = with pkgs; [
       thunderbird-bin
       itch
-      lutris
       cartridges
       fluffychat
       nitch
@@ -28,7 +27,6 @@
       #freecad
       #brlcad
       kitty
-      foot
       wezterm
       tuba
       vesktop
@@ -82,7 +80,6 @@
       brasero
       colmena
       gnupg
-      keeweb
       ldns
       nmap
       rdap
@@ -90,13 +87,13 @@
       wireguard-tools
       yt-dlp
       inputs.zen-browser.packages."${system}".generic
-      nerdfonts
     ];
   };
   programs = {
     kitty = {
       enable = true;
       shellIntegration.enableFishIntegration = true;
+      foot
     };
   };
 

@@ -44,16 +44,16 @@
     }; # cursor
     fonts = {
       serif = {
-        package = pkgs.nerdfonts;
+        package = pkgs.noto-fonts;
         name = "Noto Serif Light";
       }; # serif
       sansSerif = {
-        package = pkgs.nerdfonts;
+        package = pkgs.noto-fonts;
         name = "Noto Sans Light";
       }; # sansSerif
       monospace = {
-        package = pkgs.nerdfonts;
-        name = "0xProto Nerd Font Mono Regular";
+        package = pkgs._0xproto;
+        name = "0xProto";
       }; # monospace
       emoji = {
         package = pkgs.noto-fonts-monochrome-emoji;
