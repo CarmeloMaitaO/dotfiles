@@ -93,7 +93,6 @@
     kitty = {
       enable = true;
       shellIntegration.enableFishIntegration = true;
-      foot
     };
   };
 
