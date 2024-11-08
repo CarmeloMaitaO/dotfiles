@@ -94,6 +94,9 @@
       enable = true;
       shellIntegration.enableFishIntegration = true;
     };
+    wezterm = {
+      enable = true;
+    };
   };
 
 }
