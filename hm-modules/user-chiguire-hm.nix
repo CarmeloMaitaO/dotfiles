@@ -7,6 +7,7 @@
     packages = with pkgs; [
       thunderbird-bin
       itch
+      tangram
       cartridges
       fluffychat
       nitch
@@ -56,7 +57,6 @@
       eartag
       paper-clip
       #blender
-      bisq-desktop
       monero-gui
       clapper
       geogebra
