@@ -62,7 +62,6 @@
   localeVE.enable = true;
   keymapUS.enable = true;
   networking.enable = true;
-  bluetooth.enable = true;
   nixconf.enable = true;
   fish.enable = true;
   steam.enable = true;
@@ -71,8 +70,8 @@
   graphics.enable = true;
   virtualisation.enable = true;
   printing.enable = true;
-  hyprland.enable = true;
-  greetd.enable = true;
+  budgie.enable = true;
+  lightdm.enable = true;
   disableRPFilter.enable = true;
 
   stylix = {
