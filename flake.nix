@@ -28,8 +28,8 @@
       };
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    nur = {
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -43,7 +43,6 @@
       flake = false;
     };
 
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {

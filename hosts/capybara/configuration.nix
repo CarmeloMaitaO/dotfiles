@@ -9,8 +9,49 @@
       ./hardware-configuration.nix
     ];
 
-  environment.systemPackages = [
-    pkgs.git
+  environment.systemPackages = with pkgs; [
+    git # SVC
+    itch # Game store
+    cartridges # Game library
+    nitch # System fetch made in Nim
+    openscad # CAD for modeling using descriptive geometry
+    freecad # CAD for adicional functionality for Openscad
+    rio # Terminal
+    vesktop # Discord client
+    telegram-desktop # Telegram client
+    station # Web client for web apps
+    qrrs # QR encoder and decoder
+    pandoc # Document converter
+    typst # Text macro-processor
+    yt-dlp # CLI to download multimedia from multiple services
+    foliate # Ebook reader
+    gnucash # Accounting system
+    prismlauncher # Minecraft launcher
+    shattered-pixel-dungeon # Game
+    dialect # Google translate client
+    eartag # Metadata editor for audio files
+    blender # Animation system
+    monero-gui # Monero wallet
+    cointop # Track cryptocurrencies prices
+    clapper # Multimedia player
+    gnome-software # Software store for Flatpak
+    pika-backup # Borg backup frontend
+    gnome-secrets # Secrets manager
+    jan # FOSS offline ChatGPT alternative
+    freetube # Youtube client
+    aria2 # Download manager
+    newsboat # RSS TUI Fetcher and Reader
+    wiki-tui # TUI Client for Wikipedia
+    termusic # TUI Music player
+    firefox # Browser
+    elinks # TUI browser with support for JS and multimedia
+    aerc # TUI mail client
+    harlequin # Database management TUI
+    wtf # PI Dashboard
+    calcure # Calendar and task manager
+    tor-browser # Anonymous browser
+    yazi # TUI file manager
+    file-roller # GNOME archive manager
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -21,6 +62,7 @@
   localeVE.enable = true;
   keymapUS.enable = true;
   networking.enable = true;
+  bluetooth.enable = true;
   nixconf.enable = true;
   fish.enable = true;
   steam.enable = true;
@@ -29,8 +71,8 @@
   graphics.enable = true;
   virtualisation.enable = true;
   printing.enable = true;
-  budgie.enable = true;
-  lightdm.enable = true;
+  hyprland.enable = true;
+  greetd.enable = true;
   disableRPFilter.enable = true;
 
   stylix = {
