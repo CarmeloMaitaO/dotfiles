@@ -10,5 +10,7 @@
     ./modules/hyprland.nix
     ./modules/lightdm.nix
     ./modules/greetd.nix
+    ./modules/gnome.nix
+    ./modules/gdm.nix
   ];
 }

@@ -62,6 +62,7 @@
 	    home-manager.extraSpecialArgs = { inherit inputs; };
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
+	    home-manager.backupFileExtension = "old";
             home-manager.sharedModules = [ {
               gtk.iconTheme = {
                 package = nixpkgs.legacyPackages.x86_64-linux.pkgs.gruvbox-plus-icons;
