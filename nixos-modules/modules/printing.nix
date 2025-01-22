@@ -16,6 +16,11 @@
         pkgs.postscript-lexmark
         pkgs.samsung-unified-linux-driver
         pkgs.splix
+        pkgs.foomatic-db
+        pkgs.foomatic-db-engine
+        pkgs.foomatic-db-ppd
+        pkgs.foomatic-db-nonfree
+        pkgs.foomatic-db-ppd-withNonFreeDb
         pkgs.brlaser
         pkgs.brgenml1lpr
         pkgs.brgenml1cupswrapper

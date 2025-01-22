@@ -68,7 +68,7 @@
           light_white = "#ebdbb2";
         };
       };
-    }; # helix
+    }; # rio
     firefox = {
       enable = true;
       profiles = {

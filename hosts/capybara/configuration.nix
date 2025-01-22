@@ -32,10 +32,9 @@
     gnome-software # Software store for Flatpak
     pika-backup # Borg backup frontend
     gnome-secrets # Secrets manager
-    alpaca # FOSS offline ChatGPT alternative
+    jan # FOSS offline ChatGPT alternative
     freetube # Youtube client
     aria2 # Download manager
-    varia # GTK front-end for Aria2
     gnome-feeds # RSS Fetcher and Reader
     gnome-recipes
     wike # Client for Wikipedia
@@ -45,6 +44,8 @@
     tor-browser # Anonymous browser
     gnome-decoder # QR decoder and encoder
     killall
+    tealdeer
+    warpinator
   ];
 
   boot.loader.systemd-boot.enable = true;
