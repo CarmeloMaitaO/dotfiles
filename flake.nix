@@ -62,7 +62,7 @@
 
   }; # inputs
 
-  outputs = inputs@{ self, nixpkgs, ... }: {
+  outputs = inputs@{ self, nixpkgs, nix-on-droid, ... }: {
     nixosConfigurations = {
       nixos-work = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -104,12 +104,10 @@
     }; # nixosConfigurations
 
     nixOnDroidConfigurations = {
-      default = inputs.nix-on-droid.lib.nixOnDroidConfigurations {
-        specialArgs = { inherit inputs; };
+      default = nix-on-droid.lib.nixOnDroidConfiguration {
         pkgs = import nixpkgs { system = "aarch64-linux"; };
         modules = [
           ./hosts/nix-on-droid/nix-on-droid.nix
-          inputs.stylix.nixOnDroidModules.stylix
         ];
       }; # default
     }; # nixOnDroidConfigurations
