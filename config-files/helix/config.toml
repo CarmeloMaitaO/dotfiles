@@ -1,0 +1,17 @@
+theme = "gruvbox_dark_hard"
+
+[editor]
+mouse = false
+middle-click-paste = false
+line-number = "relative"
+auto-completion = false
+rulers = [80]
+
+[editor.statusline]
+left = ["mode", "file-name", "file-modification-indicator"]
+center = ["version-control"]
+right = ["spinner", "position", "position-percentage"]
+separator = " "
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
