@@ -111,6 +111,25 @@
         ];
       }; # default
     }; # nixOnDroidConfigurations
+
+    templates = rec {
+      nim = {
+        path = ./devshells/nim;
+        description = "Nim development environment with Zig and QT libs";
+      }; # nim
+      "c++" = {
+        path = ./devshells/c++;
+        description = "C++ development environment with Zig and QT libs";
+      }; # c++
+      typst = {
+        path = ./devshells/typst;
+        description = "Typst development environment";
+      }; # typst
+      lua = {
+        path = ./devshells/lua;
+        description = "Lua development environment";
+      }; # lua
+    };
   }; # outputs
 
 }
