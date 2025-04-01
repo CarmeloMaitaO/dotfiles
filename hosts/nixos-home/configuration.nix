@@ -34,7 +34,7 @@
     pika-backup # Borg backup frontend
     gnome-secrets # Secrets manager
     jan # FOSS offline ChatGPT alternative
-    freetube # Youtube client
+    pipeline # Youtube client
     aria2 # Download manager
     newsboat # RSS Fetcher and Reader
     chromium # Browser

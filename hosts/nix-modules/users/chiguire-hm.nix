@@ -48,6 +48,7 @@
         { id = "epcnnfbjfcgphgdmggkamkmgojdagdnn"; } # Ublock
         { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
         { id = "ldpochfccmkkmhdbclfhpagapcfdljkj"; } # Descentraleyes
+        { id = "fpnmgdkabkmnadcjpehmlllkndpkmiak"; } # Wayback Machine
       ];
     }; # chromium
   }; # programs
