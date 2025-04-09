@@ -14,12 +14,12 @@
     git # SVC
     #cartridges # Game library
     nitch # System fetch made in Nim
-    openscad # CAD for modeling using descriptive geometry
-    freecad # CAD for adicional functionality for Openscad
     ghostty # Terminal
     vesktop # Discord client
     telegram-desktop # Telegram client
     yt-dlp # CLI to download multimedia from multiple services
+    varia # GUI download manager
+    zoom-us # Videoconferencing tool
     foliate # Ebook reader
     gnucash # Accounting system
     #modrinth-app # Minecraft launcher
@@ -33,9 +33,23 @@
     aria2 # Download manager
     ffmpeg-full
     clapper
-    newsboat # RSS Fetcher and Reader
+    vlc
+    libreoffice
+    pitivi
+    parabolic
+    newsflash
+    footage
+    blanket
+    warp
+    citations
+    conjure
+    inkscape
+    krita
+    switcheroo
+    fontforge
     chromium # Browser
-    sops
+    opera # Browser
+    firefox # Browser
     tor-browser # Anonymous browser
     gnome-decoder # QR decoder and encoder
     killall
@@ -55,7 +69,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-home";
+  networking.hostName = "nixos-pi";
 
   localeVE.enable = true;
   keymapUS.enable = true;
@@ -81,9 +95,9 @@
       "flathub:app/io.freetubeapp.FreeTube//stable"
       #"flathub:app/com.pokemmo.PokeMMO//stable"
       "flathub:app/com.authormore.penpotdesktop//stable"
-      "flathub:app/dev.bambosh.UnofficialHomestuckCollection//stable"
       "flathub:app/de.capypara.FieldMonitor//stable"
       "flathub:app/eu.nokun.MirrorHall//stable"
+      "flathub:app/com.spotify.Client//stable"
     ];
   };
 
@@ -104,7 +118,7 @@
 
   stylix = {
     enable = true;
-    image = inputs.bg-home;
+    image = inputs.bg-pi;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     polarity = "dark";
     cursor = {

@@ -24,6 +24,7 @@
         epiphany
         gnome-console
         xterm
+        totem
       ];
     };
     environment.sessionVariables.NIXOS_OZONE_WL = "1";

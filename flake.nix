@@ -45,6 +45,15 @@
       }; # inputs
     }; # stylix
 
+    flatpaks = {
+      url = "github:GermanBread/declarative-flatpak/stable-v3";
+    };
+
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -59,6 +68,11 @@
       url = "https://gruvbox-wallpapers.pages.dev/wallpapers/mix/mountain.jpg";
       flake = false;
     }; # wallpaper
+
+    bg-pi = {
+      url = "https://images.alphacoders.com/709/709259.jpg";
+      flake = false;
+    };
 
   }; # inputs
 
@@ -99,8 +113,29 @@
             }; # home-manager
           } # inputs.home-manager.nixosModule.home-manager
           inputs.stylix.nixosModules.stylix
+          inputs.flatpaks.nixosModules.declarative-flatpak
         ];
       }; # nixos-home
+
+      nixos-pi = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/nixos-pi/configuration.nix
+          ./hosts/nix-modules/modules-package.nix
+          ./hosts/nix-modules/users/pi.nix
+          inputs.home-manager.nixosModules.home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              backupFileExtension = "backup";
+              useUserPackages = true;
+              users.chiguire = import ./hosts/nix-modules/users/pi-hm.nix;
+            }; # home-manager
+          } # inputs.home-manager.nixosModule.home-manager
+          inputs.stylix.nixosModules.stylix
+          inputs.flatpaks.nixosModules.declarative-flatpak
+        ];
+      }; # nixos-pi
     }; # nixosConfigurations
 
     nixOnDroidConfigurations = {

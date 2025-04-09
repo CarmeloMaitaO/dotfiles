@@ -25,8 +25,7 @@
         default = pkgs.mkShell {
           packages = with pkgs; [
             zig
-            libsForQt5.qt5.qtbase
-            libsForQt5.qt5.qttools
+            libsForQt5.full
             raylib
             sqlite
           ];

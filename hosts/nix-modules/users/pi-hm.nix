@@ -1,8 +1,8 @@
 { lib, config, pkgs, inputs, ... }:
 {
   home = {
-    username = "chiguire";
-    homeDirectory = "/home/chiguire";
+    username = "pi";
+    homeDirectory = "/home/pi";
     stateVersion = "24.11";
     file = {
       ".config/helix/config.toml" = {
@@ -46,8 +46,6 @@
       ];
       extensions = [
         { id = "epcnnfbjfcgphgdmggkamkmgojdagdnn"; } # Ublock
-        { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
-        { id = "ldpochfccmkkmhdbclfhpagapcfdljkj"; } # Descentraleyes
         { id = "fpnmgdkabkmnadcjpehmlllkndpkmiak"; } # Wayback Machine
       ];
     }; # chromium
@@ -80,7 +78,7 @@
         max-concurrent-downloads = 8;
         max-connections-per-server = 4;
         seed-time = 60;
-        dir = "/home/chiguire/Downloads";
+        dir = "/home/pi/Downloads";
       };
     }; # aria2
   }; # programs
