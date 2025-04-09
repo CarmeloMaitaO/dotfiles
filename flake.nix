@@ -129,7 +129,7 @@
               useGlobalPkgs = true;
               backupFileExtension = "backup";
               useUserPackages = true;
-              users.chiguire = import ./hosts/nix-modules/users/pi-hm.nix;
+              users.pi = import ./hosts/nix-modules/users/pi-hm.nix;
             }; # home-manager
           } # inputs.home-manager.nixosModule.home-manager
           inputs.stylix.nixosModules.stylix
