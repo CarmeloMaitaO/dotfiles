@@ -12,48 +12,13 @@
   environment.systemPackages = with pkgs; [
     helix
     git # SVC
-    #cartridges # Game library
     nitch # System fetch made in Nim
     ghostty # Terminal
-    vesktop # Discord client
-    telegram-desktop # Telegram client
     yt-dlp # CLI to download multimedia from multiple services
-    varia # GUI download manager
-    zoom-us # Videoconferencing tool
-    foliate # Ebook reader
-    gnucash # Accounting system
-    #modrinth-app # Minecraft launcher
-    #shattered-pixel-dungeon # Game
-    dialect # Google translate client
-    eartag # Metadata editor for audio files
-    blender # Animation system
     gnome-software # Software store for Flatpak
-    pika-backup # Borg backup frontend
-    gnome-secrets # Secrets manager
     aria2 # Download manager
     ffmpeg-full
-    clapper
-    vlc
-    libreoffice
-    pitivi
-    parabolic
-    newsflash
-    footage
-    blanket
-    warp
-    citations
-    conjure
-    inkscape
-    krita
-    switcheroo
-    fontforge
-    chromium # Browser
-    opera # Browser
-    firefox # Browser
-    tor-browser # Anonymous browser
-    gnome-decoder # QR decoder and encoder
     killall
-    tealdeer
     #(retroarch.override {
       #cores = with libretro; [
         #melonds
@@ -93,11 +58,30 @@
     packages = [
       "flathub:app/com.jeffser.Alpaca//stable"
       "flathub:app/io.freetubeapp.FreeTube//stable"
-      #"flathub:app/com.pokemmo.PokeMMO//stable"
       "flathub:app/com.authormore.penpotdesktop//stable"
       "flathub:app/de.capypara.FieldMonitor//stable"
       "flathub:app/eu.nokun.MirrorHall//stable"
       "flathub:app/com.spotify.Client//stable"
+      "flathub:app/org.chromium.Chromium//stable"
+      "flathub:app/org.shotcut.Shotcut//stable"
+      "flathub:app/com.github.johnfactotum.Foliate//stable"
+      "flathub:app/org.blender.Blender//stable"
+      "flathub:app/io.github.giantpinkrobots.varia//stable"
+      "flathub:app/org.gnucash.GnuCash//stable"
+      "flathub:app/org.nickvision.tubeconverter//stable"
+      "flathub:app/org.videolan.VLC//stable"
+      "flathub:app/org.libreoffice.LibreOffice//stable"
+      "flathub:app/com.opera.Opera//stable"
+      "flathub:app/org.mozilla.firefox//stable"
+      "flathub:app/org.torproject.torbrowser-launcher//stable"
+      "flathub:app/app.drey.EarTag//stable"
+      "flathub:app/org.gnome.World.PikaBackup//stable"
+      "flathub:app/org.gnome.World.Secrets//stable"
+      "flathub:app/com.belmoussaoui.Decoder//stable"
+      "flathub:app/org.fontforge.FontForge//stable"
+      "flathub:app/com.discordapp.Discord//stable"
+      "flathub:app/org.telegram.desktop//stable"
+      "flathub:app/us.zoom.Zoom//stable"
     ];
   };
 
