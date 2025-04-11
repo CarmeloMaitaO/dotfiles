@@ -56,9 +56,13 @@
 
   services.xrdp = {
     enable = true;
-    defaultWindowManager = "gnome-remote-desktop";
+    defaultWindowManager = "${pkgs.gnome.gnome-session}/bin/gnome-session";
     openFirewall = true;
   }; # services.xrdp
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
 
   localeVE.enable = true;
   keymapUS.enable = true;
