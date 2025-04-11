@@ -54,6 +54,12 @@
     }; # offload
   }; # hardware.nvidia
 
+  services.xrdp = {
+    enable = true;
+    defaultWindowManager = "gnome-remote-desktop";
+    openFirewall = true;
+  }; # services.xrdp
+
   localeVE.enable = true;
   keymapUS.enable = true;
   networking.enable = true;
