@@ -39,18 +39,6 @@
     nushell = {
       enable = true;
     }; # nushell
-    chromium = {
-      enable = true;
-      dictionaries = with pkgs; [
-        hunspellDictsChromium.en_US
-      ];
-      extensions = [
-        { id = "epcnnfbjfcgphgdmggkamkmgojdagdnn"; } # Ublock
-        { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; } # Privacy Badger
-        { id = "ldpochfccmkkmhdbclfhpagapcfdljkj"; } # Descentraleyes
-        { id = "fpnmgdkabkmnadcjpehmlllkndpkmiak"; } # Wayback Machine
-      ];
-    }; # chromium
     yt-dlp = {
       enable = true;
       settings = {
