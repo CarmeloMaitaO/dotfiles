@@ -47,11 +47,11 @@
     prime = {
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      }; # offload
     }; # prime
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
-    }; # offload
   }; # hardware.nvidia
 
   services.xrdp = {

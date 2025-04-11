@@ -9,10 +9,10 @@ with pkgs; let
 in
 {
   options = {
-    steam.enable = lib.mkEnableOption "Enables Steam";
+    steam-nvidia.enable = lib.mkEnableOption "Enables Steam";
   };
 
-  config = lib.mkIf config.steam.enable {
+  config = lib.mkIf config.steam-nvidia.enable {
     # Steam
     programs.steam = {
       enable = true;
