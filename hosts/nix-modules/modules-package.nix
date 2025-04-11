@@ -15,5 +15,6 @@
     ./nushell.nix
     ./starship.nix
     ./steam.nix
+    ./steam-nvidia.nix
   ];
 }

@@ -36,13 +36,31 @@
 
   networking.hostName = "nixos-pi";
 
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    prime = {
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    }; # prime
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    }; # offload
+  }; # hardware.nvidia
+
   localeVE.enable = true;
   keymapUS.enable = true;
   networking.enable = true;
   nixconf.enable = true;
   nushell.enable = true;
   starship.enable = true;
-  steam.enable = true;
+  steam-nvidia.enable = true;
   flatpak.enable = true;
   audio.enable = true;
   graphics.enable = true;
