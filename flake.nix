@@ -124,12 +124,14 @@
           ./hosts/nixos-pi/configuration.nix
           ./hosts/nix-modules/modules-package.nix
           ./hosts/nix-modules/users/pi.nix
+          ./hosts/nix-modules/users/chiguire.nix
           inputs.home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
               backupFileExtension = "backup";
               useUserPackages = true;
               users.pi = import ./hosts/nix-modules/users/pi-hm.nix;
+              users.chiguire = import ./hosts/nix-modules/users/chiguire-hm.nix;
             }; # home-manager
           } # inputs.home-manager.nixosModule.home-manager
           inputs.stylix.nixosModules.stylix
