@@ -12,31 +12,15 @@
   environment.systemPackages = with pkgs; [
     helix
     git # SVC
-    #cartridges # Game library
     nitch # System fetch made in Nim
-    openscad # CAD for modeling using descriptive geometry
-    freecad # CAD for adicional functionality for Openscad
     ghostty # Terminal
-    vesktop # Discord client
-    telegram-desktop # Telegram client
     yt-dlp # CLI to download multimedia from multiple services
-    foliate # Ebook reader
-    gnucash # Accounting system
-    #modrinth-app # Minecraft launcher
-    #shattered-pixel-dungeon # Game
-    dialect # Google translate client
-    eartag # Metadata editor for audio files
-    blender # Animation system
     gnome-software # Software store for Flatpak
     pika-backup # Borg backup frontend
     gnome-secrets # Secrets manager
     aria2 # Download manager
     ffmpeg-full
-    clapper
-    newsboat # RSS Fetcher and Reader
-    chromium # Browser
     sops
-    tor-browser # Anonymous browser
     gnome-decoder # QR decoder and encoder
     killall
     tealdeer
@@ -71,23 +55,7 @@
   printing.enable = true;
   gnome.enable = true;
 
-  services.flatpak = {
-    enableModule = true;
-    remotes = {
-      "flathub" = "https://dl.flathub.org/repo/flathub.flatpakrepo";
-    };
-    packages = [
-      "flathub:app/com.jeffser.Alpaca//stable"
-      "flathub:app/io.freetubeapp.FreeTube//stable"
-      #"flathub:app/com.pokemmo.PokeMMO//stable"
-      "flathub:app/com.authormore.penpotdesktop//stable"
-      "flathub:app/dev.bambosh.UnofficialHomestuckCollection//stable"
-      "flathub:app/de.capypara.FieldMonitor//stable"
-      "flathub:app/eu.nokun.MirrorHall//stable"
-    ];
-  };
-
-  fonts.packages = with pkgs; [
+ fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
