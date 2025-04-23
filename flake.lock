@@ -79,6 +79,18 @@
         "url": "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/wall_secondary.png"
       }
     },
+    "bg-pi": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-ypd+CtPGj3q6HJpO7l+oA7QECGN6bhvNh13EEaQkl3k=",
+        "type": "file",
+        "url": "https://images.alphacoders.com/709/709259.jpg"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://images.alphacoders.com/709/709259.jpg"
+      }
+    },
     "bg-work": {
       "flake": false,
       "locked": {
@@ -123,6 +135,20 @@
         "type": "github"
       }
     },
+    "flake-compat_2": {
+      "locked": {
+        "lastModified": 1696426674,
+        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
+        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
+        "revCount": 57,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.0.1/018afb31-abd1-7bff-a5e4-cff7e18efb7a/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -157,6 +183,24 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_3"
+      },
+      "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
         "type": "github"
       },
       "original": {
@@ -293,11 +337,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743808813,
-        "narHash": "sha256-2lDQBOmlz9ggPxcS7/GvcVdzXMIiT+PpMao6FbLJSr0=",
+        "lastModified": 1744743431,
+        "narHash": "sha256-iyn/WBYDc7OtjSawbegINDe/gIkok888kQxk3aVnkgg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a9f8b3db211b4609ddd83683f9db89796c7f6ac6",
+        "rev": "c61bfe3ae692f42ce688b5865fac9e0de58e1387",
         "type": "github"
       },
       "original": {
@@ -424,11 +468,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1743813633,
-        "narHash": "sha256-BgkBz4NpV6Kg8XF7cmHDHRVGZYnKbvG0Y4p+jElwxaM=",
+        "lastModified": 1745279238,
+        "narHash": "sha256-AQ7M9wTa/Pa/kK5pcGTgX/DGqMHyzsyINfN7ktsI7Fo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7819a0d29d1dd2bc331bec4b327f0776359b1fa6",
+        "rev": "9684b53175fc6c09581e94cc85f05ab77464c7e3",
         "type": "github"
       },
       "original": {
@@ -501,11 +545,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1743983100,
-        "narHash": "sha256-kqpU9g57elV2aDq5BRzuhthb+ob9RyEBQBVfOxNqB2g=",
+        "lastModified": 1745434541,
+        "narHash": "sha256-09+KxS+8Lxo5E7yi3KfHFT/w6JR9gq6p+Fr+Xd+arKo=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "e3cc0198f8b8e521b99554d7a44c9fef77f2e729",
+        "rev": "6d04ab16a01981326374c50442471130f212c810",
         "type": "github"
       },
       "original": {
@@ -517,13 +561,15 @@
     "root": {
       "inputs": {
         "bg-home": "bg-home",
+        "bg-pi": "bg-pi",
         "bg-work": "bg-work",
         "flatpaks": "flatpaks",
         "home-manager": "home-manager_2",
         "nix-on-droid": "nix-on-droid",
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "winapps": "winapps"
       }
     },
     "scss-reset": {
@@ -565,11 +611,11 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1743892916,
-        "narHash": "sha256-RWvfosAHobUiGMhWIS915WF4TsrQYDXv1gJk59TLAdU=",
+        "lastModified": 1744152965,
+        "narHash": "sha256-LWUeN1+bH3k46fwtIv0bNgtmkqB0UduyX7T2i+230n0=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "aebfec1998ebbc087de0104e4a4cec99ec1e3f7a",
+        "rev": "8748db082ca15d32243c86e5d785d5dfc8a65719",
         "type": "github"
       },
       "original": {
@@ -595,6 +641,21 @@
       }
     },
     "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -677,6 +738,28 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "winapps": {
+      "inputs": {
+        "flake-compat": "flake-compat_2",
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745082437,
+        "narHash": "sha256-k6T4YkIxqvmPB9XIdFL+p3Dh+jL3Xg/Co+q3xbCcsoc=",
+        "owner": "winapps-org",
+        "repo": "winapps",
+        "rev": "a4d30724b588cea9c3c60279d8773d320f621594",
+        "type": "github"
+      },
+      "original": {
+        "owner": "winapps-org",
+        "repo": "winapps",
         "type": "github"
       }
     }

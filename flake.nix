@@ -113,7 +113,6 @@
             }; # home-manager
           } # inputs.home-manager.nixosModule.home-manager
           inputs.stylix.nixosModules.stylix
-          inputs.flatpaks.nixosModules.declarative-flatpak
         ];
       }; # nixos-home
 
