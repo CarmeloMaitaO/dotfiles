@@ -29,7 +29,7 @@
             craftos-pc
           ];
           shellHook = ''
-            nushell
+            nu
           '';
         };
       }

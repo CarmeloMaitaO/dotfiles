@@ -28,7 +28,7 @@
             typst
           ];
           shellHook = ''
-            nushell
+            nu
           '';
         };
       }

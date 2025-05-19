@@ -35,7 +35,7 @@
             android-tools
           ];
           shellHook = ''
-            nushell
+            nu
           '';
         };
       }
