@@ -24,6 +24,9 @@
     gnome-decoder # QR decoder and encoder
     killall
     tealdeer
+    aichat # AI chat client
+    nemu # TUI for QEMU
+    bottom # System Monitor
     #(retroarch.override {
       #cores = with libretro; [
         #melonds

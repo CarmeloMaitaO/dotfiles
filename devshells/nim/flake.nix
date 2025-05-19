@@ -3,7 +3,7 @@
 
   inputs = {
     # Latest commit in the branch nixos-24.11
-    nixpkgs.url = "github:nixos/nixpkgs/de6bff00ff533dced917a3a1a437c5dea6ad23b1";
+    nixpkgs.url = "github:nixos/nixpkgs/9b5ac7ad45298d58640540d0323ca217f32a6762";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -28,11 +28,16 @@
             nimble
             nph
             zig
+            nushell
             nodejs_23
-            libsForQt5.full
-            raylib
             sqlite
+            electron-bin
+            electron-fiddle
+            android-tools
           ];
+          shellHook = ''
+            nushell
+          ''
         };
       }
     );
