@@ -32,7 +32,6 @@
             nodejs_23
             sqlite
             electron-bin
-            electron-fiddle
             android-tools
           ];
           shellHook = ''
