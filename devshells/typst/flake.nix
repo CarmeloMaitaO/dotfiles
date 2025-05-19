@@ -29,7 +29,7 @@
           ];
           shellHook = ''
             nushell
-          ''
+          '';
         };
       }
     );
