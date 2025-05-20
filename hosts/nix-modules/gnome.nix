@@ -19,7 +19,7 @@
       enable = true;
     };
     environment.systemPackages = with pkgs; [
-      gnome.gnome-remote-desktop
+      pkgs.gnome-remote-desktop
     ];
     environment.gnome = {
       excludePackages = with pkgs; [
