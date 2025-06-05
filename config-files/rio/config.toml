@@ -1,0 +1,9 @@
+theme = "gruvbox_dark_hard"
+
+[editor]
+program = "hx"
+args = []
+
+[shell]
+program = "nu"
+args = []
