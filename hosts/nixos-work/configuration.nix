@@ -11,8 +11,18 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    timeout = 5;
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      sortKey = "znixos";
+      netbootxyz = {
+        enable = true;
+        sortKey = "zznetbootxyz";
+      };
+    };
+  };
 
   networking.hostName = "nixos-work"; # Define your hostname.
 
@@ -34,19 +44,24 @@
     typst # Text macro-processor
     yt-dlp # CLI to download multimedia from multiple services
     foliate # Ebook reader
-    gnucash # Accounting system
-    dialect # Google translate client
-    gnome-software # Software store for Flatpak
     pika-backup # Borg backup frontend
     gnome-secrets # Secrets manager
-    jan # FOSS offline ChatGPT alternative
     freetube # Youtube client
     aria2 # Download manager
-    chromium # Browser
-    tor-browser # Anonymous browser
+    brave # Browser
     gnome-decoder # QR decoder and encoder
     killall
     tealdeer
+    bottom
+    carburetor
+    hashes
+    onlyoffice-desktopeditors
+    dconf-editor
+    clapper
+    clapper-enhancers
+    collision
+    tree
+    treecat
   ];
 
   localeVE.enable = true;
@@ -61,16 +76,35 @@
   printing.enable = true;
   gnome.enable = true;
 
-  services.locate = {
-    enable = true;
-    package = pkgs.plocate;
-    interval = "02:15";
-    localuser = null;
+  environment.variables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
+    PAGER = "less";
+    BROWSER = "brave";
   };
+  environment.sessionVariables = rec {
+    XDG_CACHE_HOME  = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME   = "$HOME/.local/share";
+    XDG_STATE_HOME  = "$HOME/.local/state";
+
+    XDG_BIN_HOME = "$HOME/.local/bin";
+    PATH = [ 
+      "${XDG_BIN_HOME}"
+    ];
+  };
+
+ fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    liberation_ttf
+    corefonts
+  ];
 
   stylix = {
     enable = true;
-    image = inputs.bg-work;
+    image = inputs.bg-mountain;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     polarity = "dark";
     cursor = {
@@ -98,6 +132,6 @@
     }; # fonts
   }; # stylix
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }

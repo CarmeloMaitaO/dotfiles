@@ -36,18 +36,14 @@
       enable = true;
       force = true;
       text = lib.generators.toYAML { } {
-        model = "gemini:gemini-2.5-flash-preview-05-20";
+        model = "gemini:gemini-2.5-flash";
         editor = "hx";
         "save_session" = true;
-        wrap = 80;
+        #wrap = 80;
         "wrap_code" = true;
         "sync_models_url" = "https://raw.githubusercontent.com/sigoden/aichat/refs/heads/main/models.yaml";
-        "function_calling" = false;
+        "function_calling" = true;
         clients = [
-          {
-            type = "openrouter";
-            "api_key" = (builtins.readFile /home/chiguire/Documents/secrets/openrouter);
-          } # openrouter
           {
             type = "gemini";
             "api_key" = (builtins.readFile /home/chiguire/Documents/secrets/gemini);
@@ -55,52 +51,45 @@
         ];
       };
     };
-    "aichat/roles/prompt-maker-general.md" = {
+    "aichat/roles/prompt-engineer.md" = {
       enable = true;
       force = true;
-      source = /home/chiguire/Documents/prompts/prompt-maker-general.md;
+      source = /home/chiguire/Documents/ai/roles/prompt-engineer.md;
     };
-    "aichat/roles/prompt-maker-aichat.md" = {
+    "aichat/roles/systems-analist.md" = {
       enable = true;
       force = true;
-      source = /home/chiguire/Documents/prompts/prompt-maker-aichat.md;
+      source = /home/chiguire/Documents/ai/roles/systems-analist.md;
     };
-    "aichat/roles/aitutor.md" = {
+    "aichat/roles/programmer.md" = {
       enable = true;
       force = true;
-      source = /home/chiguire/Documents/prompts/aitutor.md;
+      source = /home/chiguire/Documents/ai/roles/programmer.md;
     };
-    "aichat/roles/nim-programmer.md" = {
+    "aichat/roles/designer.md" = {
       enable = true;
       force = true;
-      source = /home/chiguire/Documents/prompts/nim-programmer.md;
+      source = /home/chiguire/Documents/ai/roles/designer.md;
     };
-    "aichat/roles/qml-programmer.md" = {
+    "aichat/roles/tech-reference.md" = {
       enable = true;
       force = true;
-      source = /home/chiguire/Documents/prompts/qml-programmer.md;
-    };
-    "aichat/roles/dbml-programmer.md" = {
-      enable = true;
-      force = true;
-      source = /home/chiguire/Documents/prompts/dbml-programmer.md;
-    };
-    "aichat/roles/sql-programmer.md" = {
-      enable = true;
-      force = true;
-      source = /home/chiguire/Documents/prompts/sql-programmer.md;
+      source = /home/chiguire/Documents/ai/roles/tech-reference.md;
     };
   };
   stylix.targets.helix.enable = false;
   dconf.settings = {
     "org/gnome/desktop/wm/keybindings" = {
       toggle-fullscreen = [
-        "F11"
+        "<Super>F11"
       ];
     };
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
       night-light-schedule-automatic = false;
+      night-light-temperature = 2700;
+      night-light-schedule-from = 0;
+      night-light-schedule-to = 0;
     };
   }; # dconf.settings
   gtk = {

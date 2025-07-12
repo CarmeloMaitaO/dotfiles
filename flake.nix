@@ -59,12 +59,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     }; # nur
 
-    bg-home = {
+    bg-pixelcity = {
       url = "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/wall_secondary.png";
       flake = false;
     }; # wallpaper
 
-    bg-work = {
+    bg-mountain = {
       url = "https://gruvbox-wallpapers.pages.dev/wallpapers/mix/mountain.jpg";
       flake = false;
     }; # wallpaper
@@ -89,13 +89,13 @@
         modules = [
           ./hosts/nixos-work/configuration.nix
           ./hosts/nix-modules/modules-package.nix
-          ./hosts/nix-modules/users/tecnico.nix
+          ./hosts/nix-modules/users/chiguire.nix
           inputs.home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
               backupFileExtension = "backup";
               useUserPackages = true;
-              users.tecnico = import ./hosts/nix-modules/users/tecnico-hm.nix;
+              users.chiguire = import ./hosts/nix-modules/users/chiguire-hm.nix;
             }; # home-manager
           } # inputs.home-manager.nixosModule.home-manager
           inputs.stylix.nixosModules.stylix

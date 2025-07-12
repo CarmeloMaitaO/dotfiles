@@ -28,8 +28,12 @@
         gnome-console
         xterm
         totem
+        epiphany
       ];
     };
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    environment.variables = {
+      GSK_RENDERER = "ngl";
+    };
   };
 }

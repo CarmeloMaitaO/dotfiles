@@ -27,14 +27,9 @@
             nim
             nimble
             nph
-            zig
             nodejs_24
             sqlite
-            qt6.full
-            # What a fella do just to target Android
-            android-studio-tools
-            jdk17
-            gradle
+            clang_20
           ];
           shellHook = ''
           '';

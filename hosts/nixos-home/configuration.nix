@@ -14,6 +14,7 @@
     git # SVC
     nitch # System fetch made in Nim
     ghostty # Terminal
+    lazysql # TUI SQL database client
     yt-dlp # CLI to download multimedia from multiple services
     gnome-software # Software store for Flatpak
     pika-backup # Borg backup frontend
@@ -49,6 +50,17 @@
     freetube # Youtube client
     telegram-desktop # Chat app
     penpot-desktop # Figma alternative
+    wf-recorder # Record desktop on Wayland
+    exercism # CLI for Exercism.org
+    jujutsu # VCS
+    jjui # Jujutsu TUI
+    lagrange
+    lagrange-tui
+    tree
+    treecat
+    prismlauncher
+    packet
+    d2
     #(retroarch.override {
       #cores = with libretro; [
         #melonds
@@ -61,8 +73,28 @@
     #})
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    timeout = 5;
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      sortKey = "znixos";
+      netbootxyz = {
+        enable = true;
+        sortKey = "zznetbootxyz";
+      };
+    };
+  };
+  boot.kernelModules = [ "kvm-intel" "v4l2loopback" "snd-aloop" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
+  boot.extraModprobeConfig = ''
+    # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
+    # card_label: Name of virtual camera, how it'll show up in Skype, Zoom, Teams
+    # https://github.com/umlaeute/v4l2loopback
+    options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+  '';
 
   networking.hostName = "nixos-home";
 
@@ -108,7 +140,7 @@
 
   stylix = {
     enable = true;
-    image = inputs.bg-home;
+    image = inputs.bg-mountain;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     polarity = "dark";
     cursor = {
