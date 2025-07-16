@@ -1,0 +1,215 @@
+...@style.d2
+
+# -----------------------------------------------------------------------------
+# General Prompts
+# -----------------------------------------------------------------------------
+pm: "Prompt Maker: Specialized Prompts" {
+	class: uml-class
+
+	"generatePrompt(outputFormat, client: string)": string
+}
+
+cs: "Conversation Summarizer: Context Prompts" {
+	class: uml-class
+
+	"summarizeConversation(conversation: JSON)": JSON
+}
+
+dt: "Directory Tree Contextualizer: Context Prompts" {
+	class: uml-class
+
+	"getTree(tree: string)": JSON
+}
+
+sg: "Schema Generator: Context Prompts" {
+	class: uml-class
+
+	"generateSchema(outputFormat: string, requirements: string[])": string
+}
+
+cm: "Commit Message Generator: Specialized Prompts" {
+	class: uml-class
+}
+
+qa: "Questions and Answers: Specialized Prompts" {
+	class: uml-class
+}
+
+ld: "Programming Language Definition Generator: Specialized Prompts" {
+	class: uml-class
+}
+
+# -----------------------------------------------------------------------------
+# Social Prompts
+# -----------------------------------------------------------------------------
+
+pana: "Personality Analizer: Specialized Prompts" { class: uml-class }
+pwri: "Writing Style Analizer: Specialized Prompts" { class: uml-class }
+psoc: "Communications Manager: Specialized Prompts" {
+  class: uml-class
+  "setPersona(personality, writingStyle: JSON)": void
+  "writeEmail()"
+  "writeInstantMessage()"
+  "writePost()"
+}
+
+# -----------------------------------------------------------------------------
+# Programming Oriented Prompts
+# -----------------------------------------------------------------------------
+ssa: "Systems Analist: Multiperspective Prompts" {
+	class: uml-class
+	"getRequirements(feedback: string[])": "string[]"
+	"writeDesign()": "string[]"
+	"refineDesign(feedback: string[])": "string[]"
+}
+
+spg: "Programmer: Multiperspective Prompts" {
+	class: uml-class
+	"readDesign(diagrams, specifications, requirements, constraints: string[])": void
+	"writeAlgorithm(requirements: string[])": string
+	"writeModule(requirements, apiDefinition: string[])": "string[]"
+	"commentCode(code: string[])": "string[]"
+	"checkModularity(code: string[])": string
+	"checkArchitecture(code: string[])": string # Monolithic or Polylithic?
+	"checkSecurity(code: string[])": "string[]" # design flaws? code flaws?
+}
+
+sui: "UI Programmer: Multiperspective Prompts" {
+	class: uml-class
+	"prototypeOnXML(uiRequirements: string[])": "XML[]"
+	"convertXMLToKarax(ui: XML)": "string"
+}
+
+sdb: "Database Programmer: Multiperspective Prompts" {
+	class: uml-class
+}
+
+slg: "Logic Programmer: Multiperspective Prompts" {
+	class: uml-class
+}
+
+sapi: "API Programmer: Multiperspective Prompts" {
+	class: uml-class
+}
+
+sbind: "Bindings Programmer: Multiperspective Prompts" {
+	class: uml-class
+}
+
+snp: "Nim Programmer: Character Prompts" { class: uml-class }
+ssql: "SQLite3 Programmer: Character Prompts" { class: uml-class }
+sd2: "D2 Programmer: Character Prompts" { class: uml-class }
+shtml: "HTML Programmer: Character Prompts" { class: uml-class }
+scss: "CSS Programmer: Character Prompts" { class: uml-class }
+sjs: "Javascript Programmer: Character Prompts" { class: uml-class }
+sc: "C Programmer: Character Prompts" { class: uml-class }
+scpp: "C++ Programmer: Character Prompts" { class: uml-class }
+slua: "Lua Programmer: Character Prompts" { class: uml-class }
+snix: "Nix Programmer: Character Prompts" { class: uml-class }
+stypst: "Typst Programmer: Character Prompts" { class: uml-class }
+
+sdiag: "Diagrams Maker: Character Prompts" {
+	class: uml-class
+}
+sreq: "Requirements Engineer: Character Prompts" {
+	class: uml-class
+}
+
+# -----------------------------------------------------------------------------
+# Prompts Designed specifically to be a template of business, may be refined
+# to fit an specific business entity (organization/person)
+# -----------------------------------------------------------------------------
+bcto: "Chief Technology Officer: Character Prompts" { class: uml-class }
+bcio: "Chief Information Officer: Character Prompts" { class: uml-class }
+bcso: "Chief Security Officer: Character Prompts" { class: uml-class }
+bcao: "Chief Academic Officer: Character Prompts" { class: uml-class }
+bcaco: "Chief Accesibility Officer: Character Prompts" { class: uml-class }
+bcacco: "Chief Accounting Officer: Character Prompts" { class: uml-class }
+bcado: "Chief Administrative Officer: Character Prompts" { class: uml-class }
+bcano: "Chief Analytics Officer: Character Prompts" { class: uml-class }
+bca: "Chief Architect: Character Prompts" { class: uml-class }
+bcae: "Chief Audit Executive: Character Prompts" { class: uml-class }
+bcbo: "Chief Brand Officer: Character Prompts" { class: uml-class }
+bcbso: "Chief Business Officer: Character Prompts" { class: uml-class }
+bcbdo: "Chief Business Development Officer: Character Prompts" { class: uml-class }
+bcco: "Chief Comercial Officer: Character Prompts" { class: uml-class }
+bccmo: "Chief Communications Officer: Character Prompts" { class: uml-class }
+bccpo: "Chief Compliance Officer: Character Prompts" { class: uml-class }
+bccto: "Chief Content Officer: Character Prompts" { class: uml-class }
+bccro: "Chief Creative Officer: Character Prompts" { class: uml-class }
+bccuo: "Chief Customer Officer: Character Prompts" { class: uml-class }
+bcdo: "Chief Data Officer: Character Prompts" { class: uml-class }
+bcdeo: "Chief Delivery Officer: Character Prompts" { class: uml-class }
+bcdgo: "Chief Design Officer: Character Prompts" { class: uml-class }
+bcddo: "Chief Development Officer: Character Prompts" { class: uml-class }
+bcdio: "Chief Digital Officer: Character Prompts" { class: uml-class }
+bcdvo: "Chief Diversity Officer: Character Prompts" { class: uml-class }
+bcengo: "Chief Engineering Officer: Character Prompts" { class: uml-class }
+bcuxo: "Chief Experience Officer: Character Prompts" { class: uml-class }
+bcfo: "Chief Financial Officer: Character Prompts" { class: uml-class }
+bcgo: "Chief Gaming Officer: Character Prompts" { class: uml-class }
+bcgro: "Chief Government Relations Officer: Character Prompts" { class: uml-class }
+bchro: "Chief Human Resources Officer: Character Prompts" { class: uml-class }
+bciso: "Chief Information Security Officer: Character Prompts" { class: uml-class }
+bcino: "Chief Innovation Officer: Character Prompts" { class: uml-class }
+bcivo: "Chief Investment Officer: Character Prompts" { class: uml-class }
+bcko: "Chief Knowledge Officer: Character Prompts" { class: uml-class }
+bclo: "Chief Learning Officer: Character Prompts" {	class: uml-class }
+bclgo: "Chief Legal Officer: Character Prompts" { class: uml-class }
+bcmo: "Chief Marketing Officer: Character Prompts" { class: uml-class }
+bcmdo: "Chief Medical Officer: Character Prompts" { class: uml-class }
+bno: "Chief Networking Officer: Character Prompts" { class: uml-class }
+bnuo: "Chief Nursing Officer: Character Prompts" { class: uml-class }
+bcopo: "Chief Operating Officer: Character Prompts" { class: uml-class }
+bcpro: "Chief Privacy Officer: Character Prompts" { class: uml-class }
+bcproo: "Chief Process Officer: Character Prompts" { class: uml-class }
+bcprmo: "Chief Procurement Officer: Character Prompts" { class: uml-class }
+bcpdo: "Chief Product Officer: Character Prompts" { class: uml-class }
+bqo: "Chief Quality Officer: Character Prompts" { class: uml-class }
+brso: "Chief Research Officer: Character Prompts" { class: uml-class }
+brdo: "Chief Research and Development Officer: Character Prompts" { class: uml-class }
+brvuo: "Chief Revenue Officer: Character Prompts" { class: uml-class }
+bcro: "Chief Risk Officer: Character Prompts" { class: uml-class }
+bcslo: "Chief Sales Officer: Character Prompts" { class: uml-class }
+bcscio: "Chief Science Officer: Character Prompts" { class: uml-class }
+bcse: "Chief Software Officer: Character Prompts" { class: uml-class }
+bcsolo: "Chief Solutions Officer: Character Prompts" { class: uml-class }
+bcstro: "Chief Strategy Officer: Character Prompts" { class: uml-class }
+bcsuso: "Chief Sustanability Officer: Character Prompts" { class: uml-class }
+bcsye: "Chief System Engineer: Character Prompts" { class: uml-class }
+bcvao: "Chief Value Officer: Character Prompts" { class: uml-class }
+bcviso: "Chief Visionary Officer: Character Prompts" { class: uml-class }
+bcwebo: "Chief Web Officer: Character Prompts" { class: uml-class }
+bof: "Of Counsel: Character Prompts" { class: uml-class } # Corporate attorney
+
+bceo: "Chief Executive Officer: Character Prompts" {
+  class: uml-class
+  "hireExecutives(businessDescription, goals, circunstances: string[])": "string[]"
+  "proposeMeeting(businessDescription, goals, circunstances: string[])": "string"
+}
+bbco: "Chief Officers: Multiperspective Prompts" { class: uml-class }
+
+bbcom: "Executive Meeting: Multiperspective Prompts" {
+	class: uml-class
+	# R&D
+	# ERP
+	# [Business Administration](https://en.wikipedia.org/wiki/Business_administration)
+	# Sales Management
+	# Operations Management
+	# Manufacturing Process Management
+	# Quality Management
+	# Accounting Management
+	# Office Management
+	# Records Management
+	# Marketing
+	# Branding
+	# Training
+	# Legal consulting
+}
+
+# -----------------------------------------------------------------------------
+# Relationships
+# -----------------------------------------------------------------------------
+dt -- *: "Provides the directory tree with the files content in JSON format"
+cs -- *: "Summarizes all the provided conversations in a single file"
+sg -- pm: "Generates and output schema for a new prompt"

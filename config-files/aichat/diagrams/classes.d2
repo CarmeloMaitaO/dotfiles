@@ -1,0 +1,163 @@
+# D2 UML Class Diagram: AI Role and Prompt Categories
+#
+# This file serves as a blueprint (model) for defining various types of AI system prompts
+# and their interrelationships within a comprehensive prompt engineering framework.
+# It is intended to be self-explanatory for use by a "Prompt Maker" (an AI or human)
+# to understand how to construct new specialized prompts.
+#
+# All classes inherit core attributes and methods from the base "AI Role" class,
+# ensuring common characteristics across all prompt types.
+#
+# Use this diagram to:
+# - Understand the structure of an AI system prompt.
+# - Identify common traits and specialized functionalities.
+# - Design new prompt instances (which would be represented in UML Object Diagrams).
+# - Ensure consistency in prompt creation across different AI roles and models.
+
+# Apply a predefined style for UML elements. (Assumes @style.d2 exists and defines UML styling)
+...@style.d2
+
+# Define the external actor that interacts with the AI roles.
+user.class: user
+
+# ----------------------------------------------------------------------
+# Class Definitions
+# ----------------------------------------------------------------------
+
+# Base Class: AI Role
+# Represents the fundamental definition of any AI system prompt or role.
+# All specialized prompt categories inherit from this base class.
+role: "AI Role" {
+	class: uml-class
+
+	# Core LLM Parameters:
+	# These attributes control the behavior of the underlying Large Language Model (LLM).
+    model: string        # Specifies the particular LLM model to be used (e.g., "gpt-4", "claude-3").
+	temperature: float   # Controls the randomness of the output (0.0 for deterministic, higher for more creative).
+	top_p: float         # Nucleus sampling parameter; considers tokens whose cumulative probability is below top_p.
+
+	# CO-STAR Framework Attributes (Common Prompt Design Elements):
+	# These attributes guide the AI in understanding its task and generating appropriate responses.
+	context: string          # Background information or scenario for the AI to operate within.
+	objective: string        # The primary goal or task the AI needs to achieve.
+	writingStyle: string     # The desired linguistic style for the AI's output (e.g., "formal", "casual", "technical").
+	tone: string             # The emotional or attitudinal tone of the AI's response (e.g., "empathetic", "authoritative", "humorous").
+	audience: string         # The intended recipients of the AI's output, influencing language and complexity.
+	responseFormat: string   # The required structure or format of the AI's output (e.g., "JSON", "Markdown", "bullet points").
+	workflow: "string[]"
+
+	# Prompt Engineering Metadata:
+	# These attributes provide insights into how the prompt itself was designed or should operate.
+	promptEngineeringFramework: string # The prompt engineering framework used in designing this prompt (e.g., "CO-STAR", "CRISPE", "Propel").
+	promptEngineeringTechniques: ||md
+	  string[]
+	||
+
+    # Common methods for all AI prompts/roles:
+	# These methods define how an AI role can manage its conversational state across interactions.
+	"getConversationSummary()": JSON # Retrieves a summary of the ongoing conversation in JSON format. Used to preserve context across multiple conversations with different AI prompts/roles/models.
+	"setConversationSummary(JSON)": void # Loads a previously generated conversation summary to add it to the current context, enabling continuity.
+}
+
+# Specialized Prompts (sr)
+# Represents AI roles designed for specific, task-oriented functions.
+# Examples: "Code Generator", "Summarizer", "System Prompt Maker", "Data Extractor".
+sr: "Specialized Prompts" {
+	class: uml-class
+
+	# Attributes specific to Specialized Prompts:
+	skills: "string[]"
+}
+
+# Character Prompts (cr)
+# Represents AI roles designed to embody a specific persona or character.
+# Examples: "Sarcastic Historian", "Friendly Customer Support Bot", "Fantasy RPG NPC".
+cr: "Character Prompts" {
+	class: uml-class
+
+	# Attributes specific to Character Prompts:
+	personalityTraits: "string[]"
+	backstory: string        # A narrative history of the character, providing depth and context for their responses.
+	rolePlayingContext: string # The specific scenario or environment in which the character is expected to operate and interact.
+	characterDetails: "string[]"
+}
+
+# Multiperspective Prompts (mr)
+# Represents AI roles designed to generate responses by integrating
+# multiple viewpoints, often achieved by orchestrating other specialized
+# or character prompts. This class demonstrates composition.
+mr: "Multiperspective Prompts" {
+	class: uml-class
+    # This class inherits attributes and methods from "AI Role".
+    # It doesn't have specific attributes defined here but relies on its
+    # aggregation relationships to define its nature.
+    # Example attributes could include:
+    # perspectives: ||md string[] ||  # Names or IDs of the perspectives used (e.g., "optimist", "pessimist")
+    # synthesisStrategy: string       # How individual perspectives are combined (e.g., "Consensus", "Debate", "CombinedNarrative")
+}
+
+# Context Prompts (ctr)
+# Represents AI roles dedicated to generating, extracting, or summarizing
+# contextual information for other AI prompts/roles.
+# Examples: "Document Summarizer for AI Roles", "World Builder for Characters".
+ctr: "Context Prompts" {
+	class: uml-class
+    # This class inherits attributes and methods from "AI Role".
+    # Example attributes could include:
+    # targetInfoType: string # Type of info generated (e.g., "summary", "world_lore", "user_profile")
+}
+
+# Refinement Prompts (rr)
+# Represents AI roles specialized in iteratively improving, correcting,
+# or expanding upon existing AI-generated output.
+rr: "Refinement Prompts" {
+	class: uml-class
+
+	# Attributes specific to Refinement Prompts:
+	refinementGoal: string         # The objective of the refinement (e.g., "Improve conciseness", "Enhance tone", "Fix formatting").
+	refinementCriteria: "string[]"
+	inputToRefineFormat: string    # The expected format of the content that needs to be refined (e.g., "Markdown essay", "JSON data").
+	iterationsLimit: uint8         # The maximum number of times the refinement process should be attempted (unsigned 8-bit integer).
+	feedbackSource: string         # Indicates where the refinement criteria or feedback originates (e.g., "Self-reflection", "Human-feedback", "Automated-check").
+}
+
+# ----------------------------------------------------------------------
+# Relationships
+# ----------------------------------------------------------------------
+
+# Generalization Relationships (Inheritance)
+# Denotes an "is-a" relationship, where the child class is a more specific
+# type of the parent class and inherits its attributes and methods.
+rr -> role: { class: uml-generalization } # Refinement Prompts IS A AI Role
+sr -> role: { class: uml-generalization } # Specialized Prompts IS A AI Role
+cr -> role: { class: uml-generalization } # Character Prompts IS A AI Role
+ctr -> role: { class: uml-generalization } # Context Prompts IS A AI Role
+mr -> role: { class: uml-generalization } # Multiperspective Prompts IS A AI Role
+
+# Aggregation Relationships (Composition)
+# Denotes a "has-a" relationship, where a class contains or is composed
+# of instances of other classes, but those contained instances can exist
+# independently.
+mr -> sr: { class: uml-aggregation } # A Multiperspective Prompt includes one or more Specialized Prompts.
+mr -> cr: { class: uml-aggregation } # A Multiperspective Prompt may include zero or more Character Prompts.
+
+# Dependency / Usage Relationships
+# Denotes that one class depends on or uses another class, often by
+# referring to its instances or consuming its output.
+ctr -- sr: "Creates context for" # Context Prompts generate context used by Specialized Prompts.
+ctr -- cr: "Creates context for" # Context Prompts generate context used by Character Prompts.
+ctr -- mr: "Creates context for" # Context Prompts generate context used by Multiperspective Prompts.
+
+rr -- sr: "Refines output of" # Refinement Prompts improve output from Specialized Prompts.
+rr -- cr: "Refines output of" # Refinement Prompts improve output from Character Prompts.
+rr -- ctr: "Refines output of" # Refinement Prompts improve output from Context Prompts.
+rr -- mr: "Refines output of" # Refinement Prompts improve output from Multiperspective Prompts.
+
+# User Interaction Relationships
+# Defines how the external 'user' actor interacts with different
+# categories of AI prompts, indicating the types of data exchanged.
+user -- sr: "Interacts with plain text, Markdown, XML and JSON" # User interacts with Specialized Prompts.
+user -- cr: "Interacts with plain text, Markdown, XML and JSON" # User interacts with Character Prompts.
+user -- ctr: "Interacts with plain text, Markdown, XML and JSON" # User interacts with Context Prompts.
+user -- mr: "Interacts with plain text, Markdown, XML and JSON" # User interacts with Multiperspective Prompts.
+user -- rr: "Interacts with plain text, Markdown, XML and JSON" # User interacts with Refinement Prompts.

@@ -54,27 +54,7 @@
     "aichat/roles/prompt-engineer.md" = {
       enable = true;
       force = true;
-      source = /home/chiguire/Documents/ai/roles/prompt-engineer.md;
-    };
-    "aichat/roles/systems-analist.md" = {
-      enable = true;
-      force = true;
-      source = /home/chiguire/Documents/ai/roles/systems-analist.md;
-    };
-    "aichat/roles/programmer.md" = {
-      enable = true;
-      force = true;
-      source = /home/chiguire/Documents/ai/roles/programmer.md;
-    };
-    "aichat/roles/designer.md" = {
-      enable = true;
-      force = true;
-      source = /home/chiguire/Documents/ai/roles/designer.md;
-    };
-    "aichat/roles/tech-reference.md" = {
-      enable = true;
-      force = true;
-      source = /home/chiguire/Documents/ai/roles/tech-reference.md;
+      source = ../../../config-files/aichat/roles/prompt-engineer.md;
     };
   };
   stylix.targets.helix.enable = false;

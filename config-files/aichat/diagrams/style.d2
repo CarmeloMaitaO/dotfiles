@@ -1,0 +1,114 @@
+vars: {
+  d2-config: {
+    layout-engine: elk
+    theme-overrides: {
+	  N1: "#BDAE93"   # fg3     # Text color
+	  N2: "#BDAE93"   # fg3     # Italics text
+	  N4: "#1D2021"   # bg0_h   # Diamond shape
+	  N5: "#1D2021"   # bg0_h   # Parallelogram, Queue, Hexagon shapes
+	  N7: "#1D2021"   # bg0_h   # Rectangle, Circle, Callout, Cloud shapes
+	
+      B1: "#928384"   # gray    # Connections and borders (solid)
+      B2: "#928384"   # gray    # Connections and borders (dashed)
+      B3: "#1D2021"   # bg0_h   # Person, 4x parent rectangle and circle shapes
+      B4: "#1D2021"   # bg0_h   # 3x parent rectangle and circle shapes
+      B5: "#1D2021"   # bg0_h   # 2x parent rectangle and circle shapes
+      B6: "#1D2021"   # bg0_h   # parent rectangle and circle shapes
+
+      AA4: "#1D2021"  # bg0_h   # Parent stored data, package and cylinder shapes
+      AA5: "#1D2021"  # bg0_h   # Stored data, package and cylinder shapes
+
+      AB4: "#1D2021"  # bg0_h   # Parent page, step and document shapes
+      AB5: "#1D2021"  # bg0_h   # Page, step and document shapes
+    }
+  }
+}
+
+classes: {
+    user: {
+		label: "User"
+		shape: c4-person
+	}
+    # UML Connections
+    uml-composition: {
+      target-arrowhead: {
+        shape: diamond
+        style.filled: true
+      }
+      source-arrowhead: {
+        shape: diamond
+        style.filled: true
+      }
+    }
+    uml-aggregation: {
+      target-arrowhead: {
+        shape: diamond
+        style.filled: false
+      }
+      source-arrowhead: {
+        shape: diamond
+        style.filled: false
+      }
+    }
+    uml-generalization: {
+      target-arrowhead: {
+        shape: triangle
+        style.filled: false
+      }
+      source-arrowhead: {
+        shape: triangle
+        style.filled: false
+      }
+    }
+    uml-usage: {
+      style.stroke-dash: 3
+    }
+    uml-dependency: {
+      style.stroke-dash: 3
+    }
+    uml-realization: {
+      target-arrowhead: {
+        shape: triangle
+        style.filled: false
+      }
+      source-arrowhead: {
+        shape: triangle
+        style.filled: false
+      }
+      style.stroke-dash: 3
+    }
+    # UML Class diagrams
+    uml-class: {
+	  shape: class
+	}
+    # UML Activity diagrams
+    uml-initial-state: {
+      shape: circle
+      style: {
+        filled: true
+      }
+    }
+    uml-final-state: {
+      shape: circle
+      style: {
+        filled: true
+        double-border: true
+      }
+    }
+    uml-decision: {
+      shape: diamond
+      style.filled: true
+    }
+    uml-swimlane: {
+      grid-gap: 0
+      grid-columns: 1
+      label: ""
+    }
+    uml-fork-join: {
+      label: ""
+      style.filled: true
+      style.fill: ${d2-config.theme-overrides.B1}
+      width: 100
+      height: 8
+    }
+}
