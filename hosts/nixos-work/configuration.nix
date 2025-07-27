@@ -16,10 +16,19 @@
     efi.canTouchEfiVariables = true;
     systemd-boot = {
       enable = true;
-      sortKey = "znixos";
+      sortKey = "1";
       netbootxyz = {
         enable = true;
-        sortKey = "zznetbootxyz";
+        sortKey = "2";
+      };
+      windows."Windows-11" = {
+        title = "Windows 11";
+        sortKey = "0";
+        efiDeviceHandle = "HD0a65535a1";
+      };
+      edk2-uefi-shell = {
+        enable = true;
+        sortKey = "3";
       };
     };
   };
@@ -62,6 +71,7 @@
     collision
     tree
     treecat
+    gnome-frog
   ];
 
   localeVE.enable = true;

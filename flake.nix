@@ -92,6 +92,7 @@
           ./hosts/nix-modules/users/chiguire.nix
           inputs.home-manager.nixosModules.home-manager {
             home-manager = {
+              extraSpecialArgs = { inherit inputs; };
               useGlobalPkgs = true;
               backupFileExtension = "backup";
               useUserPackages = true;

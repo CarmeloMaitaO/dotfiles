@@ -51,10 +51,60 @@
         ];
       };
     };
-    "aichat/roles/prompt-engineer.md" = {
+    "aichat/roles/prompt-maker.md" = {
       enable = true;
       force = true;
-      source = ../../../config-files/aichat/roles/prompt-engineer.md;
+      source = ../../../config-files/aichat/roles/prompt-maker.md;
+    };
+    "aichat/roles/business-chief-officers.md" = {
+      enable = true;
+      force = true;
+      source = ../../../config-files/aichat/roles/business-chief-officers.md;
+    };
+    "aichat/roles/commit-message-generator.md" = {
+      enable = true;
+      force = true;
+      source = ../../../config-files/aichat/roles/commit-message-generator.md;
+    };
+    "aichat/roles/conversation-summarizer.md" = {
+      enable = true;
+      force = true;
+      source = ../../../config-files/aichat/roles/conversation-summarizer.md;
+    };
+    "aichat/roles/homework-maker.md" = {
+      enable = true;
+      force = true;
+      source = ../../../config-files/aichat/roles/homework-maker.md;
+    };
+    "aichat/roles/language-definitions-generator.md" = {
+      enable = true;
+      force = true;
+      source = ../../../config-files/aichat/roles/language-definitions-generator.md;
+    };
+    "aichat/roles/public-relations-manager.md" = {
+      enable = true;
+      force = true;
+      source = ../../../config-files/aichat/roles/public-relations-manager.md;
+    };
+    "aichat/roles/questions-and-answers.md" = {
+      enable = true;
+      force = true;
+      source = ../../../config-files/aichat/roles/questions-and-answers.md;
+    };
+    "aichat/roles/requirements-engineer.md" = {
+      enable = true;
+      force = true;
+      source = ../../../config-files/aichat/roles/requirements-engineer.md;
+    };
+    "aichat/roles/schema-generator.md" = {
+      enable = true;
+      force = true;
+      source = ../../../config-files/aichat/roles/schema-generator.md;
+    };
+    "aichat/roles/systems-engineer.md" = {
+      enable = true;
+      force = true;
+      source = ../../../config-files/aichat/roles/systems-engineer.md;
     };
   };
   stylix.targets.helix.enable = false;

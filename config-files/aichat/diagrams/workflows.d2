@@ -1,0 +1,314 @@
+#------------------------------------------------------------------------------
+# Basic nodes
+#------------------------------------------------------------------------------
+...@style.d2
+
+start: {
+  class: uml-initial-state
+}
+merge1: { class: uml-merge }
+merge2: { class: uml-merge }
+inputGuard: { class: uml-guard }
+selection: { class: uml-decision }
+methods: { class: group }
+iterationGuard: { class: uml-guard }
+end: { class: uml-final-state }
+#------------------------------------------------------------------------------
+# Common methods
+#------------------------------------------------------------------------------
+
+# Retrieves a summary of the ongoing conversation in JSON format. Used to preserve context across multiple conversations with different AI prompts/roles/models.
+methods."getConversationSummary(): JSON": {
+ class: uml-swimlane
+
+ start: "Have a summary been given before?" { class: uml-decision }
+ end: "Output the JSON summary" { class: uml-activity }
+ append: "Append the summary of the current conversation to the JSON summary" { class: uml-activity }
+
+ merge1: { class: uml-merge }
+ start -> append: "Yes"
+ append -> merge1
+ start -> merge1: "No"
+ merge1 -> end
+}
+
+# Loads a previously generated conversation summary to add it to the current context, enabling continuity.
+methods."setConversationSummary(JSON)": {
+ class: uml-swimlane
+ start: "Load the conversations for context" { class: uml-activity }
+ end: {
+   class: uml-activity
+   label: ||md
+     For each conversation output:
+     - The conversation turn/number
+     - The AI role that interacted with the user
+     - a less than 100 words summary of the conversation
+   ||
+ }
+ start -> end
+}
+
+# Provides a list of all available methods
+methods."getMethods(): string[]": {
+ class: uml-swimlane
+
+ start: "Output the list of available methods" { class: uml-activity }
+ end: "Output a short description for each available method" { class: uml-activity }
+
+  start -> end
+}
+
+#------------------------------------------------------------------------------
+# Basic conversation flow
+#------------------------------------------------------------------------------
+start -> merge1 -> inputGuard
+inputGuard -> selection: "[New input]"
+inputGuard -> merge2: "[No input]"
+
+selection -> methods.*.start
+selection -> methods.*.start
+methods.*.end -> merge2
+
+merge2 -> iterationGuard
+iterationGuard -> end: "[No input]"
+iterationGuard -> merge1: "[New input]"
+
+#------------------------------------------------------------------------------
+# Specific objects instances / AI roles
+#------------------------------------------------------------------------------
+
+# Each scenario is the instance of an object, with the additional methods of
+# their own specific workflow
+
+scenarios: {
+	"AI Role": {} # It doesn't have additional methods, it's the base class
+
+	"Prompt Maker": {
+	    methods."defaultInteraction(input: string)": {
+			class: uml-swimlane
+
+			start: { class: uml-guard }
+			option1: "Was the user request detailed enough?" { class: uml-decision }
+			branch1-yes: "Execute the \"generatePrompt()\" method" { class: uml-activity}
+			branch1-no: "Ask clarifying questions and propose answers to them" { class: uml-activity }
+			option2: "Answer the question and ask clarifying questions (goals, details)" { class: uml-activity }
+			option3: { class: uml-guard }
+			option3-1: "Add the answers to the context of the request and continue the execution of the task that triggered the questions" { class: uml-activity }
+			option3-2: "Apply the proposed changes" { class: uml-activity }
+			end: { class: uml-merge }
+
+			start -> option1: "[Input is a request]"
+			start -> option2: "[Input is a question]"
+			start -> option3: "[Input is feedback]"
+			option1 -> branch1-yes: "Yes"
+			option1 -> branch1-no: "No"
+			branch1-yes -> end
+			branch1-no -> end
+			option2 -> end
+			option3 -> option3-1: "[Clarifying Questions]"
+			option3 -> option3-2: "[Prompt]"
+			option3-1 -> end
+			option3-2 -> end
+
+		} # methods."defaultIteration()"
+		
+		methods."generatePrompt(outputFormat, client: string): string": {
+			class: uml-swimlane
+
+			start: { class: uml-guard }
+			option1-1: "outputFormat = Markdown" { class: uml-activity }
+			option1-2: "outputFormat = Plaintext" { class: uml-activity }
+			option1-3: "outputFormat = JSON" { class: uml-activity }
+			merge1: { class: uml-merge }
+			selection: { class: uml-guard }
+			option2-1: "client = None/Agnostic" { class: uml-activity }
+			option2-2: "client = Aichat" { class: uml-activity }
+			merge2: { class: uml-merge }
+			end: "Output the prompt in the requested format for the requested client" { class: uml-activity }
+
+			start -> option1-1: "[Markdown]"
+			start -> option1-2: "[Plaintext]"
+			start -> option1-3: "[JSON]"
+			option1-1 -> merge1
+			option1-2 -> merge1
+			option1-3 -> merge1
+			merge1 -> selection
+			selection -> option2-1: "[None/Agnostic]"
+			selection -> option2-2: "[Aichat]"
+			option2-1 -> merge2
+			option2-2 -> merge2
+			merge2 -> end
+
+		} # methods."generatePrompt(..."
+	} # "Prompt Maker"
+
+	"Conversation Summarizer": {
+		methods."defaultInteraction()": {
+		    class: uml-swimlane
+			
+			start: "For each entry on the conversation file (JSON): make a summary of it's content" { class: uml-activity }
+			end: "Replace the content of each entry of the conversation file (JSON) with the created summary" { class: uml-activity}
+			start -> end
+		} # methods."defaultInteraction(input: string)"
+	} # "Conversaiton Summarizer"
+
+	"Schema Generator": {
+		methods."generateSchema()": {
+		    class: uml-swimlane
+			
+			start: "" { class: uml-guard }
+			option1: "Generate a JSON Schema based on user request" { class: uml-activity }
+			option2: "Ask clarifying questions, determinate goals and context" { class: uml-activity }
+			option3: "Modify the generated schema based on the feedback" { class: uml-activity }
+			end: "" { class: uml-merge }
+
+			start -> option1: "Input is detailed enough"
+			start -> option2: "Input isn't detailed enough"
+			start -> option3: "Input is feedback on the generated schema"
+			option1 -> end
+			option2 -> end
+			option3 -> end
+		} # methods."generateSchema()"
+	} # "Schema Generator"
+
+	"Commit Message Generator": {
+		methods."generateMessage()": {
+		    class: uml-swimlane
+			
+			start: "Check the provided Diff file" { class: uml-activity }
+			end: "Output a commit message with a summary of all changes" { class: uml-activity }
+		} methods."generateMessage()"
+	} # "Commit Message Generator"
+
+	"Questions and Answers": {
+		methods."defaultInteraction()": {
+		    class: uml-swimlane
+			
+			start: "" { class: uml-guard }
+			option1: "Answer the question" { class: uml-activity }
+			option2: "Recommend books and search terms. Try to provide the name of the field that studies the subject that the user is inquiring about" { class: uml-activity }
+			end: "" { class: uml-merge }
+
+			start -> option1: "Question"
+			start -> option2: "Question about additional information on the subject"
+			option1 -> end
+			option2 -> end
+		} # methods."defaultInteraction()"
+	} # "Questions and Answers"
+
+	"Language Definitions Generator": {
+	    methods."defaultInteraction()": {
+		  class: uml-swimlane
+		
+		  start: "List keywords, syntactic structures, file structures, tools and behaviour" { class: uml-activity }
+		  end: "Output them in a JSON file" { class: uml-activity }
+
+		  start -> end
+		} # "defaultInteraction()"
+	} # "Language Definitions Generator"
+
+	"Public Relations Manager": {
+	    methods."defaultInteraction()": {
+		  class: uml-swimlane
+		  start: "" { class: uml-guard }
+		  option1: "Set the writing style, tone, structure, language and quirks" { class: uml-activity } # Set persona
+		  option2: "Writes an email with the user's intention with the specified persona" { class: uml-activity } # Write Email
+		  option3: "Writes an letter with the user's intention with the specified persona" { class: uml-activity } # Write Letter
+		  option4: "Writes an memo with the user's intention with the specified persona" { class: uml-activity } # Write Memo
+		  option5: "Writes an instant message with the user's intention with the specified persona" { class: uml-activity } # Write IM
+		  option6: "Writes an social media post with the user's intention with the specified persona" { class: uml-activity } # Write Social Media Post
+		  option7: "Write what is being understood for the feedback and write a response to it" { class: uml-activity } # Feedback
+		  end: "" { class: uml-merge }
+
+		  start -> option1: "Set persona"
+		  start -> option2: "Write email"
+		  start -> option3: "Write letter"
+		  start -> option4: "Write memo"
+		  start -> option5: "Write instant message"
+		  start -> option6: "Write social media post"
+		  start -> option7: "Feedback"
+		  option1 -> end
+		  option2 -> end
+		  option3 -> end
+		  option4 -> end
+		  option5 -> end
+		  option6 -> end
+		  option7 -> end
+		} # "defaultInteraction()"
+	} # "Public Relations Manager"
+
+	"Systems Engineer": {
+	    methods."defaultInteraction()": {
+		  class: uml-swimlane
+		  start: "" { class: uml-guard }
+		  option1: "Add comments to the provided code. Focus on why is it there" { class: uml-activity } # Comment code
+		  option2: "Generate a codebase based on the provided design" { class: uml-activity } # Code design
+		  option3: "Write a singular algorithm based on the user's request" { class: uml-activity } # Write algorithm
+		  option4: "Write a singular module based on the user's request" { class: uml-activity } # Write module
+		  option5: "Check the current codebase for bugs and vulnerabilities" { class: uml-activity } # Check for bugs and vulnerabilities
+		  end: "" { class: uml-merge }
+
+		  start -> option1: "Comment code"
+		  start -> option2: "Code design"
+		  start -> option3: "Write algorithm"
+		  start -> option4: "Write module"
+		  start -> option5: "Check for bugs and vulnerabilities"
+		  option1 -> end
+		  option2 -> end
+		  option3 -> end
+		  option4 -> end
+		  option5 -> end
+		} # "defaultInteraction()"
+	} # "Systems Engineer"
+
+	"Requirements Engineer": {
+	    methods."defaultInteraction()": {
+		  class: uml-swimlane
+		  start: "" { class: uml-guard }
+		  option1: "Ask clarifying questions in order to know enough to make the Software Requirements Specification (SRS)" { class: uml-activity } # Get requirements
+		  option2: "Make an SRS based on the provided codebase or software name" { class: uml-activity } # Clean-room reverse engineering
+		  option3: "Generate the SRS based on the received requirements" { class: uml-activity } # Generate the Software Requirements Specification (SRS)
+		  option4: "Generate a C4 diagram based on the SRS" { class: uml-activity } # Diagram new system
+		  option5: "Generate a list of security considerations regarding the design" { class: uml-activity } # Check the design's security
+		  option6: "Generate a list of considerations about the modularity of the design" { class: uml-activity } # Check the design's modularity
+		  option7: "Generate a list of considerations about the design and it's capacity to scale vertically and horizontally" { class: uml-activity } # Check the design's capacity to scale horizontally and vertically
+		  end: "" { class: uml-merge }
+
+		  start -> option1: "Default Interaction"
+		  start -> option2: "Input implies clean-room reverse engineering"
+		  start -> option3: "Generate SRS"
+		  start -> option4: "Generate C4 diagram"
+		  start -> option5: "Check security"
+		  start -> option6: "Check modularity"
+		  start -> option7: "Check capacity to scale"
+		  option1 -> end
+		  option2 -> end
+		  option3 -> end
+		  option4 -> end
+		  option5 -> end
+		  option6 -> end
+		  option7 -> end
+		} # "defaultInteraction()"
+	} # "Requirements Engineer"
+
+	"Business Chief Officers": {
+	    methods."defaultInteraction()": {
+		  class: uml-swimlane
+		  start: "Ask clarifying questions about the business" { class: uml-activity }
+		  end: "Generate a description of the business and list the necessary executives and processes for it's management and development" { class: uml-activity }
+
+		  start -> end
+		} # "defaultInteraction()"
+	} # "Business Chief Officers"
+
+	"Homework maker": {
+	    methods."defaultInteraction()": {
+		  class: uml-swimlane
+		  start: "Make an outline of the subject" { class: uml-activity }
+		  middle: "Generate the content for the outline" { class: uml-activity }
+		  end: "Generate the required type of written work" { class: uml-activity }
+
+		  start -> middle -> end
+		} # "defaultInteraction()"
+	} # "Homework maker"
+}

@@ -1,6 +1,6 @@
 vars: {
   d2-config: {
-    layout-engine: elk
+    layout-engine: dagre
     theme-overrides: {
 	  N1: "#BDAE93"   # fg3     # Text color
 	  N2: "#BDAE93"   # fg3     # Italics text
@@ -29,6 +29,14 @@ classes: {
 		label: "User"
 		shape: c4-person
 	}
+    # General Invisible Semantic Grouping
+    group: {
+      label: ""
+      style: {
+        stroke: transparent
+        fill: transparent
+      }
+    }
     # UML Connections
     uml-composition: {
       target-arrowhead: {
@@ -83,26 +91,42 @@ classes: {
 	}
     # UML Activity diagrams
     uml-initial-state: {
+      label: ""
       shape: circle
       style: {
         filled: true
       }
     }
     uml-final-state: {
+      label: ""
       shape: circle
       style: {
         filled: true
         double-border: true
       }
     }
+    uml-activity: {
+      shape: rectangle
+    }
     uml-decision: {
       shape: diamond
       style.filled: true
     }
-    uml-swimlane: {
-      grid-gap: 0
-      grid-columns: 1
+    uml-guard: {
       label: ""
+      shape: diamond
+      style.filled: true
+    }
+    uml-merge: {
+      label: ""
+      shape: diamond
+      style: {
+        filled: true
+        fill: ${d2-config.theme-overrides.B1}
+      }
+    }
+    uml-swimlane: {
+      label.near: top-left
     }
     uml-fork-join: {
       label: ""

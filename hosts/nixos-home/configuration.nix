@@ -61,6 +61,8 @@
     prismlauncher
     packet
     d2
+    gnome-frog
+    imagemagick
     #(retroarch.override {
       #cores = with libretro; [
         #melonds
