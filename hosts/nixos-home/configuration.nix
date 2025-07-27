@@ -131,6 +131,12 @@
   virtualisation.enable = true;
   printing.enable = true;
   gnome.enable = true;
+  nixpkgsUnstable = {
+    enable = true;
+    packages = [
+      "euphonica"
+    ];
+  };
 
  fonts.packages = with pkgs; [
     noto-fonts

@@ -173,4 +173,16 @@
       };
     }; # aria2
   }; # programs
+  services = {
+    mpd = {
+      enable = true;
+      musicDirectory = /home/chiguire/Music;
+      extraConfig = ''
+        audio_output {
+          type "pipewire"
+          name "MPD Pipewire output"
+        }
+      '';
+    }; # mpd
+  }; # services
 }

@@ -16,5 +16,6 @@
     ./starship.nix
     ./steam.nix
     ./steam-nvidia.nix
+    ./unstable.nix
   ];
 }

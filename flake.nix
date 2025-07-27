@@ -24,6 +24,10 @@
       url = "github:nixos/nixpkgs/nixos-25.05";
     }; # nixpkgs
 
+    nixpkgs-unstable = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+    }; # nipkgs-unstable
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,10 +48,6 @@
         home-manager.follows = "home-manager";
       }; # inputs
     }; # stylix
-
-    flatpaks = {
-      url = "github:GermanBread/declarative-flatpak/stable-v3";
-    };
 
     winapps = {
       url = "github:winapps-org/winapps";
@@ -83,25 +83,6 @@
 
   outputs = inputs@{ self, nixpkgs, nix-on-droid, ... }: {
     nixosConfigurations = {
-      nixos-work = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/nixos-work/configuration.nix
-          ./hosts/nix-modules/modules-package.nix
-          ./hosts/nix-modules/users/chiguire.nix
-          inputs.home-manager.nixosModules.home-manager {
-            home-manager = {
-              extraSpecialArgs = { inherit inputs; };
-              useGlobalPkgs = true;
-              backupFileExtension = "backup";
-              useUserPackages = true;
-              users.chiguire = import ./hosts/nix-modules/users/chiguire-hm.nix;
-            }; # home-manager
-          } # inputs.home-manager.nixosModule.home-manager
-          inputs.stylix.nixosModules.stylix
-        ];
-      }; # nixos-work
 
       nixos-home = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -124,6 +105,26 @@
         ];
       }; # nixos-home
 
+      nixos-work = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/nixos-work/configuration.nix
+          ./hosts/nix-modules/modules-package.nix
+          ./hosts/nix-modules/users/chiguire.nix
+          inputs.home-manager.nixosModules.home-manager {
+            home-manager = {
+              extraSpecialArgs = { inherit inputs; };
+              useGlobalPkgs = true;
+              backupFileExtension = "backup";
+              useUserPackages = true;
+              users.chiguire = import ./hosts/nix-modules/users/chiguire-hm.nix;
+            }; # home-manager
+          } # inputs.home-manager.nixosModule.home-manager
+          inputs.stylix.nixosModules.stylix
+        ];
+      }; # nixos-work
+
       nixos-pi = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
@@ -134,6 +135,7 @@
           ./hosts/nix-modules/users/chiguire.nix
           inputs.home-manager.nixosModules.home-manager {
             home-manager = {
+              extraSpecialArgs = { inherit inputs; };
               useGlobalPkgs = true;
               backupFileExtension = "backup";
               useUserPackages = true;
@@ -161,10 +163,6 @@
         path = ./devshells/nim;
         description = "Nim development environment with Zig and QT libs";
       }; # nim
-      "c++" = {
-        path = ./devshells/c++;
-        description = "C++ development environment with Zig and QT libs";
-      }; # c++
       typst = {
         path = ./devshells/typst;
         description = "Typst development environment";

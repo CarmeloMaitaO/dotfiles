@@ -25,6 +25,14 @@
         default = pkgs.mkShell {
           packages = with pkgs; [
             typst
+            typstPackages.academicv
+            typstPackages.swe-cv
+            typstPackages.rivet
+            typstPackages.codly
+            typstPackages.codly
+            typstPackages.codly-languages
+            typstPackages.km
+            typstPackages.wavy
           ];
           shellHook = ''
           '';
