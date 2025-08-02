@@ -63,6 +63,7 @@
     d2
     gnome-frog
     imagemagick
+    eloquent
     #(retroarch.override {
       #cores = with libretro; [
         #melonds
@@ -80,10 +81,14 @@
     efi.canTouchEfiVariables = true;
     systemd-boot = {
       enable = true;
-      sortKey = "znixos";
+      sortKey = "1";
       netbootxyz = {
         enable = true;
-        sortKey = "zznetbootxyz";
+        sortKey = "2";
+      };
+      edk2-uefi-shell = {
+        enable = true;
+        sortKey = "3";
       };
     };
   };

@@ -10,6 +10,20 @@
         source = ../../../config-files/helix/config.toml;
         force = true;
       }; # helix
+      ".config/nixpkgs/config.nix" = {
+        enable = true;
+        source = ../../../config-files/nixpkgs/config.nix;
+        force = true;
+      }; # nixpkgs
+    };
+    sessionVariables = {
+      EDITOR = "hx";
+      VISUAL = "hx";
+      PAGER = "less";
+      BROWSER = "brave";
+      SHELL = "nu";
+      TERMINAL = "ghostty";
+      TERM = "ghostty";
     };
   };
   stylix.targets.helix.enable = false;
@@ -42,7 +56,7 @@
     yt-dlp = {
       enable = true;
       settings = {
-        cookies-from-browser = "chromium";
+        cookies-from-browser = "brave";
         embed-metadata = true;
         embed-chapters = true;
         embed-thumbnail = true;
@@ -72,4 +86,16 @@
       };
     }; # aria2
   }; # programs
+  services = {
+    mpd = {
+      enable = true;
+      musicDirectory = /home/pi/Music;
+      extraConfig = ''
+        audio_output {
+          type "pipewire"
+          name "MPD Pipewire output"
+        }
+      '';
+    }; # mpd
+  }; # services
 }

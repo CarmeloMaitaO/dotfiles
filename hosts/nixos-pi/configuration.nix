@@ -3,21 +3,16 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, inputs, modulesPath, ... }:
-with pkgs; let
-  patchDesktop = pkg: appName: from: to: lib.hiPrio (
-    pkgs.runCommand "$patched-desktop-entry-for-${appName}" {} ''
-    ${coreutils}/bin/mkdir -p $out/share/applications
-    ${gnused}/bin/sed 's#${from}#${to}#g' < ${pkg}/share/applications/${appName}.desktop > $out/share/applications/${appName}.desktop
-  '');
-  GPUOffloadApp = pkg: desktopName: patchDesktop pkg desktopName "^Exec=" "Exec=nvidia-offload ";
-in
 {
   imports =
     [ 
       ./hardware-configuration.nix
     ];
 
+  nixpkgs.overlays = [ fjordlauncher.overlays.default ];
+
   environment.systemPackages = with pkgs; [
+    fjordlauncher
     helix
     git # SVC
     nitch # System fetch made in Nim
@@ -27,35 +22,37 @@ in
     aria2 # Download manager
     ffmpeg-full
     killall
-    (GPUOffload (pkgs.alpaca.override { ollama = pkgs.ollama-cuda; }) "com.jeffser.Alpaca")
-    (GPUOffload freetube "freetube")
-    (GPUOffload penpot-desktop "Penpot")
-    (GPUOffload clapper "com.github.rafostar.Clapper")
+    freetube
+    penpot-desktop
+    clapper
     clapper-enhancers
     vlc
     spotify
-    (GPUOffload brave "brave-browser")
-    (GPUOffload firefox "firefox")
-    (GPUOffload opera "opera")
+    brave
     foliate
-    (GPUOffload blender "blender")
+    blender
     varia
     gnucash
-    (GPUOffload parabolic "org.nickvision.tubeconverter")
-    (GPUOffload onlyoffice-desktopeditors "onlyoffice-desktopeditors")
+    parabolic
+    onlyoffice-desktopeditors
     tor-browser
     eartag
     pika-backup
     gnome-secrets
     gnome-decoder
-    (GPUOffload fontforge "fontforge")
+    fontforge
     telegram-desktop
     anytype
     bottom
     carburetor
-    (GPUOffload zoom-us "Zoom")
+    zoom-us
     dconf-editor
-    ( GPUOffload (pkgs.retroarch.override {
+    cartridges
+    gnome-frog
+    tree
+    treecat
+    eloquent
+    (pkgs.retroarch.override {
      cores = with libretro; [
       melonds
       citra
@@ -64,11 +61,37 @@ in
       beetle-psx-hw
       play
      ];
-    }) "retroarch")
+    })
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    timeout = 5;
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      sortKey = "1";
+      netbootxyz = {
+        enable = true;
+        sortKey = "2";
+      };
+      edk2-uefi-shell = {
+        enable = true;
+        sortKey = "3";
+      };
+    };
+  };
+  boot.kernelModules = [ "kvm-intel" "v4l2loopback" "snd-aloop" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
+  boot.extraModprobeConfig = ''
+    # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
+    # card_label: Name of virtual camera, how it'll show up in Skype, Zoom, Teams
+    # https://github.com/umlaeute/v4l2loopback
+    options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+  '';
 
   networking.hostName = "nixos-pi";
 
@@ -83,10 +106,7 @@ in
     prime = {
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      }; # offload
+      sync.enable = true;
     }; # prime
   }; # hardware.nvidia
 
@@ -94,7 +114,7 @@ in
     EDITOR = "hx";
     VISUAL = "hx";
     PAGER = "less";
-    BROWSER = "opera";
+    BROWSER = "brave";
   };
   environment.sessionVariables = rec {
     XDG_CACHE_HOME  = "$HOME/.cache";
@@ -121,6 +141,13 @@ in
   virtualisation.enable = true;
   printing.enable = true;
   gnome.enable = true;
+  nixpkgsUnstable = {
+    enable = true;
+    packages = [
+      "euphonica"
+      "(alpaca.override { ollama = unstablePkgs.ollama-cuda; })"
+    ];
+  };
 
   };
 
@@ -135,8 +162,8 @@ in
   stylix = {
     enable = true;
     image = inputs.bg-pi;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-dune-light.yaml";
+    polarity = "light";
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";

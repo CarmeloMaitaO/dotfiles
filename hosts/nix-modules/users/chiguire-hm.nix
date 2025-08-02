@@ -137,9 +137,6 @@
     nushell = {
       enable = true;
     }; # nushell
-    rio = {
-      enable = true;
-    };
     yt-dlp = {
       enable = true;
       settings = {
