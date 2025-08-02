@@ -2,17 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, modulesPath, fjordlauncher, ... }:
+{ config, pkgs, inputs, modulesPath, ... }:
 {
   imports =
     [ 
       ./hardware-configuration.nix
     ];
 
-  nixpkgs.overlays = [ fjordlauncher.overlays.default ];
-
   environment.systemPackages = with pkgs; [
-    fjordlauncher
     helix
     git # SVC
     nitch # System fetch made in Nim
@@ -49,16 +46,16 @@
     tree
     treecat
     eloquent
-    (pkgs.retroarch.override {
-     cores = with libretro; [
+    (retroarch.withCores (
+     cores: with cores; [
       melonds
       citra
       dolphin
       ppsspp
       beetle-psx-hw
       play
-     ];
-    })
+     ]
+    ))
   ];
 
   boot.loader = {
@@ -140,7 +137,7 @@
     enable = true;
     packages = [
       "euphonica"
-      "(alpaca.override { ollama = unstablePkgs.ollama-cuda; })"
+      "alpaca"
     ];
   };
 

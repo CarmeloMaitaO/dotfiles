@@ -86,7 +86,7 @@
 
   }; # inputs
 
-  outputs = inputs@{ self, nixpkgs, nix-on-droid, ... }: {
+  outputs = inputs@{ self, nixpkgs, nix-on-droid, fjordlauncher, ... }: {
     nixosConfigurations = {
 
       nixos-home = nixpkgs.lib.nixosSystem {
@@ -149,6 +149,14 @@
             }; # home-manager
           } # inputs.home-manager.nixosModule.home-manager
           inputs.stylix.nixosModules.stylix
+          (
+            { pkgs, ... }:
+            {
+              nixpkgs.overlays = [ fjordlauncher.overlays.default ];
+
+              environment.systemPackages = [ pkgs.fjordlauncher ];
+            }
+          )
         ];
       }; # nixos-pi
     }; # nixosConfigurations

@@ -65,16 +65,16 @@
     gnome-frog
     imagemagick
     eloquent
-    #(retroarch.override {
-      #cores = with libretro; [
-        #melonds
-        #citra
-        #dolphin
-        #ppsspp
-        #beetle-psx-hw
-        #play
-      #];
-    #})
+    (retroarch.withCores (
+     cores: with cores; [
+      melonds
+      citra
+      dolphin
+      ppsspp
+      beetle-psx-hw
+      play
+     ]
+    ))
   ];
 
   boot.loader = {
