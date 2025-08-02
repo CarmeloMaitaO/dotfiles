@@ -10,6 +10,7 @@
     ];
 
   environment.systemPackages = with pkgs; [
+    shattered-pixel-dungeon
     helix
     git # SVC
     nitch # System fetch made in Nim
