@@ -1,0 +1,13 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i 'nim e --hints:off' -p nim
+mode = ScriptMode.Silent
+import std/os
+
+let
+  video: string = paramStr(4).quoteShell
+  command: string = "ffmpeg -re -i " & video & " -f v4l2 /dev/video0"
+
+try:
+  exec command
+finally:
+  quit()

@@ -31,16 +31,13 @@
     brave
     foliate
     blender
-    varia
     gnucash
-    parabolic
     onlyoffice-desktopeditors
     tor-browser
     eartag
     pika-backup
     gnome-secrets
     gnome-decoder
-    fontforge
     telegram-desktop
     anytype
     bottom
@@ -64,8 +61,6 @@
     })
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader = {
     timeout = 5;
     efi.canTouchEfiVariables = true;
