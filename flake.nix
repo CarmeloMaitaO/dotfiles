@@ -86,7 +86,7 @@
 
   }; # inputs
 
-  outputs = inputs@{ self, nixpkgs, nix-on-droid, fjordlauncher, ... }: {
+  outputs = inputs@{ self, nixpkgs, nix-on-droid, fjordlauncher, winapps, ... }: {
     nixosConfigurations = {
 
       nixos-home = nixpkgs.lib.nixosSystem {
@@ -130,7 +130,7 @@
         ];
       }; # nixos-work
 
-      nixos-pi = nixpkgs.lib.nixosSystem {
+      nixos-pi = nixpkgs.lib.nixosSystem rec {
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
@@ -150,11 +150,15 @@
           } # inputs.home-manager.nixosModule.home-manager
           inputs.stylix.nixosModules.stylix
           (
-            { pkgs, ... }:
+            { pkgs, system ? pkgs.system, ... }:
             {
               nixpkgs.overlays = [ fjordlauncher.overlays.default ];
 
-              environment.systemPackages = [ pkgs.fjordlauncher ];
+              environment.systemPackages = [
+                pkgs.fjordlauncher
+                winapps.packages."${system}".winapps
+                winapps.packages."${system}".winapps-launcher
+              ];
             }
           )
         ];
