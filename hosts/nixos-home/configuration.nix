@@ -10,6 +10,8 @@
     ];
 
   environment.systemPackages = with pkgs; [
+    p7zip-rar
+    hextazy
     shattered-pixel-dungeon
     helix
     git # SVC
@@ -135,6 +137,8 @@
   audio.enable = true;
   graphics.enable = true;
   virtualisation.enable = true;
+  i2pcontainer.enable = true;
+  torcontainer.enable = true;
   printing.enable = true;
   gnome.enable = true;
   nixpkgsUnstable = {

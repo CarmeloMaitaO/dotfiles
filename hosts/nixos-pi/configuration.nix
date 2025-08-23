@@ -10,6 +10,7 @@
     ];
 
   environment.systemPackages = with pkgs; [
+    looking-glass-client
     helix
     git # SVC
     nitch # System fetch made in Nim
@@ -74,7 +75,21 @@
       };
     };
   };
-  boot.kernelModules = [ "kvm-intel" "v4l2loopback" "snd-aloop" ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "vfio_virqfd"
+    "vfio_pci"
+    "vfio_iommu_type1"
+    "vfio"
+    "v4l2loopback"
+    "snd-aloop"
+  ];
+  boot.kernelParams = [
+    "intel_iommu=on"
+    "intel_iommu=pt"
+    "kvm.ignore_msrs=1"
+  ];
+  i#boot.extraModprobeConfig = "options vfio-pci ids=${builtins.concatStringsSep "," vfioIds}";
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
@@ -84,6 +99,10 @@
     # https://github.com/umlaeute/v4l2loopback
     options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
   '';
+  systemd.tmpfiles.rules = [
+    "f /dev/shm/looking-glass 0660 pi qemu-libvirtd -"
+  ];
+
 
   networking.hostName = "nixos-pi";
 
@@ -130,7 +149,6 @@
   flatpak.enable = true;
   audio.enable = true;
   graphics.enable = true;
-  virtualisation.enable = true;
   printing.enable = true;
   gnome.enable = true;
   nixpkgsUnstable = {
@@ -140,6 +158,27 @@
       "alpaca"
     ];
   };
+  virtualisation = {
+    kvmgt.enable = true;
+    waydroid.enable = true;
+    libvirtd = {
+      enable = true;
+      extraConfig =''
+        user=pi
+      '';
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+      qemu = {
+        package = pkgs.qemu_kvm;
+        ovmf = enabled;
+        verbatimConfig = ''
+          namespaces = []
+          user = "+${builtins.toString config.users.users.pi.uid}"
+        '';
+      };
+    };
+  };
+  programs.virt-manager.enable = true;
 
   fonts.packages = with pkgs; [
     noto-fonts

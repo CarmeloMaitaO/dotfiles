@@ -54,11 +54,6 @@
       }; # inputs
     }; # stylix
 
-    winapps = {
-      url = "github:winapps-org/winapps";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -86,7 +81,7 @@
 
   }; # inputs
 
-  outputs = inputs@{ self, nixpkgs, nix-on-droid, fjordlauncher, winapps, ... }: {
+  outputs = inputs@{ self, nixpkgs, nix-on-droid, fjordlauncher, ... }: {
     nixosConfigurations = {
 
       nixos-home = nixpkgs.lib.nixosSystem {
@@ -156,8 +151,6 @@
 
               environment.systemPackages = [
                 pkgs.fjordlauncher
-                winapps.packages."${system}".winapps
-                winapps.packages."${system}".winapps-launcher
               ];
             }
           )

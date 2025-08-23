@@ -17,5 +17,7 @@
     ./steam.nix
     ./steam-nvidia.nix
     ./unstable.nix
+    ./i2p.nix
+    ./tor.nix
   ];
 }
