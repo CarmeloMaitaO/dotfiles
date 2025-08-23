@@ -89,7 +89,7 @@
     "intel_iommu=pt"
     "kvm.ignore_msrs=1"
   ];
-  i#boot.extraModprobeConfig = "options vfio-pci ids=${builtins.concatStringsSep "," vfioIds}";
+  #boot.extraModprobeConfig = "options vfio-pci ids=${builtins.concatStringsSep "," vfioIds}";
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
