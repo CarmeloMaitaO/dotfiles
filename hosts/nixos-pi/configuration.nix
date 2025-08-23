@@ -149,6 +149,7 @@
   flatpak.enable = true;
   audio.enable = true;
   graphics.enable = true;
+  virtualisation.enable = true;
   printing.enable = true;
   gnome.enable = true;
   nixpkgsUnstable = {
@@ -158,26 +159,6 @@
       "alpaca"
     ];
   };
-  virtualisation = {
-    kvmgt.enable = true;
-    waydroid.enable = true;
-    libvirtd = {
-      enable = true;
-      extraConfig =''
-        user=pi
-      '';
-      onBoot = "ignore";
-      onShutdown = "shutdown";
-      qemu = {
-        package = pkgs.qemu_kvm;
-        verbatimConfig = ''
-          namespaces = []
-          user = "+${builtins.toString config.users.users.pi.uid}"
-        '';
-      };
-    };
-  };
-  programs.virt-manager.enable = true;
 
   fonts.packages = with pkgs; [
     noto-fonts
