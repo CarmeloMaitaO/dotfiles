@@ -170,7 +170,7 @@
       onShutdown = "shutdown";
       qemu = {
         package = pkgs.qemu_kvm;
-        ovmf = enabled;
+        ovmf = true;
         verbatimConfig = ''
           namespaces = []
           user = "+${builtins.toString config.users.users.pi.uid}"
