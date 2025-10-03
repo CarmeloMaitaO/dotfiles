@@ -168,18 +168,29 @@
     }; # nixOnDroidConfigurations
 
     templates = rec {
-      nim = {
-        path = ./devshells/nim;
-        description = "Nim development environment with Zig and QT libs";
-      }; # nim
-      typst = {
-        path = ./devshells/typst;
-        description = "Typst development environment";
-      }; # typst
-      lua = {
-        path = ./devshells/lua;
-        description = "Lua development environment";
-      }; # lua
+      devenv = {
+        path = ./devshells/devenv;
+        description = ''
+          Nim-centric development environment with additional support for:
+          
+          - C
+          - C++
+          - JS
+          - Zig
+          
+          Included tools:
+
+          - NodeJS
+          - SQLite
+          - Clang
+          - Emscripten
+          - LLDB
+          - Cmake
+          - CPM
+          - Slint-viewer
+          - Godot
+        '';
+      }; # devenv
     };
   }; # outputs
 

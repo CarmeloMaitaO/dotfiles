@@ -10,6 +10,7 @@
     ];
 
   environment.systemPackages = with pkgs; [
+    status-im
     p7zip-rar
     hextazy
     shattered-pixel-dungeon
@@ -32,6 +33,8 @@
     nemu # TUI for QEMU
     bottom # System Monitor
     brave # Web browser
+    chromium
+    firefox
     bruno # API IDE
     bruno-cli # CLI API IDE
     carburetor # Tor proxy
@@ -128,7 +131,7 @@
 
   localeVE.enable = true;
   keymapUS.enable = true;
-  networking.enable = true;
+  net.enable = true;
   nixconf.enable = true;
   nushell.enable = true;
   starship.enable = true;

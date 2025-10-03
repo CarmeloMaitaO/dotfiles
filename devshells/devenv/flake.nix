@@ -1,5 +1,5 @@
 {
-  description = "Nim development environment";
+  description = "Nim-centric development environment";
 
   inputs = {
     # Latest commit in the branch nixos-25.05
@@ -29,9 +29,19 @@
             nph
             nodejs_24
             sqlite
-            clang_20
+            clang_21
+            emscripten
+            lldb_21
+            zig
+            cmake
+            cpm-cmake
+            slint-viewer
+            # Godot
+            godotPackages_4_5.godot
+            godotPackages_4_5.export-templates-bin
           ];
           shellHook = ''
+            export PATH=$PATH:$HOME/.nimble
           '';
         };
       }

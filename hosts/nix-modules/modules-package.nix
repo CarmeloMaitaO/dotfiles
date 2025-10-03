@@ -9,7 +9,7 @@
     ./gnome.nix
     ./locale-ve.nix
     ./keymap-us.nix
-    ./networking.nix
+    ./net.nix
     ./bluetooth.nix
     ./nixconf.nix
     ./nushell.nix

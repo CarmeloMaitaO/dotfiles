@@ -75,7 +75,7 @@
   ];
 
   localeVE.enable = true;
-  networking.enable = true;
+  net.enable = true;
   nixconf.enable = true;
   nushell.enable = true;
   starship.enable = true;
