@@ -41,7 +41,7 @@
             godotPackages_4_5.export-templates-bin
           ];
           shellHook = ''
-            export PATH=$PATH:$HOME/.nimble
+            export PATH=$PATH:$HOME/.nimble/bin
           '';
         };
       }
