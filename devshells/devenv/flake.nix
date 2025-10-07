@@ -24,10 +24,11 @@
       { pkgs }: {
         default = pkgs.mkShell {
           packages = with pkgs; [
+            ops
             nim
             nimble
             nph
-            nodejs_24
+            bun
             sqlite
             clang_21
             emscripten

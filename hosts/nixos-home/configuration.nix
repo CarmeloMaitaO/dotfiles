@@ -10,15 +10,15 @@
     ];
 
   environment.systemPackages = with pkgs; [
+    onefetch
     status-im
     p7zip-rar
     hextazy
-    shattered-pixel-dungeon
     helix
     git # SVC
     nitch # System fetch made in Nim
-    ghostty # Terminal
-    lazysql # TUI SQL database client
+    rio # Terminal
+    sequeler
     yt-dlp # CLI to download multimedia from multiple services
     gnome-software # Software store for Flatpak
     pika-backup # Borg backup frontend
@@ -26,50 +26,33 @@
     aria2 # Download manager
     ffmpeg-full
     sops
+    age
     gnome-decoder # QR decoder and encoder
     killall
-    tealdeer
     aichat # AI chat client
-    nemu # TUI for QEMU
     bottom # System Monitor
     brave # Web browser
     chromium
     firefox
-    bruno # API IDE
-    bruno-cli # CLI API IDE
-    carburetor # Tor proxy
     keypunch # Touch-typing tutor
-    hashes # Hash identification GUI
     blender # 3D modelling software
     exhibit # Blender models viewer
     onlyoffice-desktopeditors # Office suite
-    gnucash # Accounting software
     eartag # Music tagger
     dconf-editor # dconf explorer and editor
     clapper # Multimedia player
     clapper-enhancers
     cartridges # Game launcher
-    collision # Compare hashes
     foliate # Ebook reader
-    anytype # PKM
     adwsteamgtk # GTK for Steam
     freetube # Youtube client
     telegram-desktop # Chat app
-    penpot-desktop # Figma alternative
-    wf-recorder # Record desktop on Wayland
-    exercism # CLI for Exercism.org
     jujutsu # VCS
-    jjui # Jujutsu TUI
-    lagrange
-    lagrange-tui
-    tree
-    treecat
     prismlauncher
-    packet
-    d2
-    gnome-frog
     imagemagick
     eloquent
+    hakuneko
+    shattered-pixel-dungeon
     (retroarch.withCores (
      cores: with cores; [
       melonds
@@ -149,6 +132,10 @@
     packages = [
       "euphonica"
     ];
+  };
+  services.samba = {
+    enable = true;
+    smbd.enable = true;
   };
 
  fonts.packages = with pkgs; [

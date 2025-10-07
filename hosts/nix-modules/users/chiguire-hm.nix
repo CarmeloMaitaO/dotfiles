@@ -22,8 +22,8 @@
       PAGER = "less";
       BROWSER = "brave";
       SHELL = "nu";
-      TERMINAL = "ghostty";
-      TERM = "ghostty";
+      TERMINAL = "rio";
+      TERM = "rio";
     };
   };
   xdg.configFile = {
@@ -136,6 +136,7 @@
     }; # starship
     nushell = {
       enable = true;
+      extraConfig = "nitch";
     }; # nushell
     yt-dlp = {
       enable = true;
