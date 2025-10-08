@@ -36,7 +36,6 @@
             zig
             cmake
             cpm-cmake
-            slint-viewer
             # Godot
             godotPackages_4_5.godot
             godotPackages_4_5.export-templates-bin
