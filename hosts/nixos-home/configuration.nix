@@ -146,35 +146,5 @@
     corefonts
   ];
 
-  stylix = {
-    enable = true;
-    image = inputs.bg-mountain;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    polarity = "dark";
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 16;
-    }; # cursor
-    fonts = {
-      serif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Serif Light";
-      }; # serif
-      sansSerif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Sans Light";
-      }; # sansSerif
-      monospace = {
-        package = pkgs._0xproto;
-        name = "0xProto";
-      }; # monospace
-      emoji = {
-        package = pkgs.noto-fonts-monochrome-emoji;
-        name = "Noto Emoji";
-      }; # emoji
-    }; # fonts
-  }; # stylix
-
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 }

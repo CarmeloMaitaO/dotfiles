@@ -28,16 +28,6 @@
       url = "github:NixOS/nixpkgs/nixos-unstable";
     }; # nipkgs-unstable
 
-    fjordlauncher = {
-      url = "github:unmojang/FjordLauncher";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    }; # home-manager
-
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs = {
@@ -45,19 +35,6 @@
         home-manager.follows = "home-manager";
       }; # inputs
     }; # nix-on-droid
-
-    stylix = {
-      url = "github:danth/stylix/release-25.05";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      }; # inputs
-    }; # stylix
-
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    }; # nur
 
     bg-pixelcity = {
       url = "https://gruvbox-wallpapers.pages.dev/wallpapers/pixelart/wall_secondary.png";
@@ -91,71 +68,9 @@
           ./hosts/nixos-home/configuration.nix
           ./hosts/nix-modules/modules-package.nix
           ./hosts/nix-modules/users/chiguire.nix
-          inputs.home-manager.nixosModules.home-manager {
-            
-            home-manager = {
-              extraSpecialArgs = { inherit inputs; };
-              useGlobalPkgs = true;
-              backupFileExtension = "backup";
-              useUserPackages = true;
-              users.chiguire = import ./hosts/nix-modules/users/chiguire-hm.nix;
-            }; # home-manager
-          } # inputs.home-manager.nixosModule.home-manager
-          inputs.stylix.nixosModules.stylix
         ];
       }; # nixos-home
 
-      nixos-work = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/nixos-work/configuration.nix
-          ./hosts/nix-modules/modules-package.nix
-          ./hosts/nix-modules/users/chiguire.nix
-          inputs.home-manager.nixosModules.home-manager {
-            home-manager = {
-              extraSpecialArgs = { inherit inputs; };
-              useGlobalPkgs = true;
-              backupFileExtension = "backup";
-              useUserPackages = true;
-              users.chiguire = import ./hosts/nix-modules/users/chiguire-hm.nix;
-            }; # home-manager
-          } # inputs.home-manager.nixosModule.home-manager
-          inputs.stylix.nixosModules.stylix
-        ];
-      }; # nixos-work
-
-      nixos-pi = nixpkgs.lib.nixosSystem rec {
-        specialArgs = { inherit inputs; };
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/nixos-pi/configuration.nix
-          ./hosts/nix-modules/modules-package.nix
-          ./hosts/nix-modules/users/pi.nix
-          ./hosts/nix-modules/users/chiguire.nix
-          inputs.home-manager.nixosModules.home-manager {
-            home-manager = {
-              extraSpecialArgs = { inherit inputs; };
-              useGlobalPkgs = true;
-              backupFileExtension = "backup";
-              useUserPackages = true;
-              users.pi = import ./hosts/nix-modules/users/pi-hm.nix;
-              users.chiguire = import ./hosts/nix-modules/users/chiguire-hm.nix;
-            }; # home-manager
-          } # inputs.home-manager.nixosModule.home-manager
-          inputs.stylix.nixosModules.stylix
-          (
-            { pkgs, system ? pkgs.system, ... }:
-            {
-              nixpkgs.overlays = [ fjordlauncher.overlays.default ];
-
-              environment.systemPackages = [
-                pkgs.fjordlauncher
-              ];
-            }
-          )
-        ];
-      }; # nixos-pi
     }; # nixosConfigurations
 
     nixOnDroidConfigurations = {
@@ -180,14 +95,13 @@
           
           Included tools:
 
-          - NodeJS
+          - Bun
           - SQLite
           - Clang
           - Emscripten
           - LLDB
           - Cmake
           - CPM
-          - Slint-viewer
           - Godot
         '';
       }; # devenv
