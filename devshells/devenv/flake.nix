@@ -30,18 +30,16 @@
             nph
             bun
             sqlite
-            clang_21
-            emscripten
-            lldb_21
+            qt6.full
             zig
+            lldb_21
+            hotspot
             cmake
             cpm-cmake
-            # Godot
-            godotPackages_4_5.godot
-            godotPackages_4_5.export-templates-bin
           ];
           shellHook = ''
             export PATH=$PATH:$HOME/.nimble/bin
+            export QT_QPA_PLATFORM=wayland
           '';
         };
       }

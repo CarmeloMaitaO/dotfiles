@@ -8,8 +8,14 @@
     [ 
       ./hardware-configuration.nix
     ];
+    hardware = {
+      enableRedistributableFirmware = true;
+    };
 
   environment.systemPackages = with pkgs; [
+    linuxPackages_6_16.perf
+    nix-index
+    hotspot
     onefetch
     status-im
     p7zip-rar
@@ -17,28 +23,21 @@
     helix
     git # SVC
     nitch # System fetch made in Nim
-    rio # Terminal
+    ghostty # Terminal
     sequeler
     yt-dlp # CLI to download multimedia from multiple services
-    gnome-software # Software store for Flatpak
     pika-backup # Borg backup frontend
     gnome-secrets # Secrets manager
     aria2 # Download manager
     ffmpeg-full
-    sops
-    age
-    gnome-decoder # QR decoder and encoder
     killall
     aichat # AI chat client
     bottom # System Monitor
     brave # Web browser
-    chromium
-    firefox
     keypunch # Touch-typing tutor
     blender # 3D modelling software
     exhibit # Blender models viewer
     onlyoffice-desktopeditors # Office suite
-    eartag # Music tagger
     dconf-editor # dconf explorer and editor
     clapper # Multimedia player
     clapper-enhancers
@@ -47,22 +46,10 @@
     adwsteamgtk # GTK for Steam
     freetube # Youtube client
     telegram-desktop # Chat app
-    jujutsu # VCS
     prismlauncher
     imagemagick
     eloquent
-    hakuneko
     shattered-pixel-dungeon
-    (retroarch.withCores (
-     cores: with cores; [
-      melonds
-      citra
-      dolphin
-      ppsspp
-      beetle-psx-hw
-      play
-     ]
-    ))
   ];
 
   boot.loader = {
@@ -81,9 +68,11 @@
       };
     };
   };
+  boot.kernelPackages = pkgs.linuxPackages_6_16;
   boot.kernelModules = [ "kvm-intel" "v4l2loopback" "snd-aloop" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
+    perf
   ];
   boot.extraModprobeConfig = ''
     # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
