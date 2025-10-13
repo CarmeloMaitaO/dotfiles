@@ -13,6 +13,7 @@
     };
 
   environment.systemPackages = with pkgs; [
+    gnupg
     linuxPackages_6_16.perf
     nix-index
     hotspot
