@@ -127,6 +127,8 @@
     enable = true;
     smbd.enable = true;
   };
+  programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
+  programs.gnupg.agent.enable = true;
 
  fonts.packages = with pkgs; [
     noto-fonts
