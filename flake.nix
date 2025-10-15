@@ -3,34 +3,17 @@
   A centralized repository of my dotfiles, automation scripts, and hobby
   projects (browser startpages, gaming automation, ...) for Linux and Windows
   '';
-  nixConfig = {
-
-    extra-substituters = [
-      "https://cache.nixos.org/"
-      "https://nix-community.cachix.org"
-    ]; # extra-substituters
-
-    extra-trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ]; # extra-trusted-public-keys
-
-  }; # nixConfig
 
   inputs = {
-
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-25.05";
     }; # nixpkgs
-
     nixpkgs-unstable = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     }; # nipkgs-unstable
-
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     }; # flake-parts
-
   }; # inputs
 
   outputs = inputs @ { flake-parts, ... }:
@@ -59,30 +42,27 @@
           ];
         }; # nixos-home
       }; # nixosConfigurations
+
+      templates = {
+        devenv = {
+          path = ./devshells/devenv;
+          description = ''
+            Nim-centric development environment with additional support for:
+
+            - JS
+            - Zig
+            - C
+            - C++
+            - Rust
+          '';
+        }; # devenv
+        flakeparts = {
+          path = ./devshells/flakeparts;
+          description = "Flake-parts template";
+        }; # flakeparts
+      }; # templates
     }; # flake
 
-    # templates = rec {
-    #   devenv = {
-    #     path = ./devshells/devenv;
-    #     description = ''
-    #       Nim-centric development environment with additional support for:
-          
-    #       - C
-    #       - C++
-    #       - JS
-    #       - Zig
-          
-    #       Included tools:
-
-    #       - Bun
-    #       - SQLite
-    #       - QT6
-    #       - LLDB
-    #       - Cmake
-    #       - CPM
-    #     '';
-    #   }; # devenv
-    # }; # templates
   }; # flake-parts.lib.mkflake
 
 }

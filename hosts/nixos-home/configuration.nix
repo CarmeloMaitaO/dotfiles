@@ -14,9 +14,7 @@
 
   environment.systemPackages = with pkgs; [
     gnupg
-    linuxPackages_6_16.perf
     nix-index
-    hotspot
     onefetch
     status-im
     p7zip-rar
@@ -27,10 +25,10 @@
     ghostty # Terminal
     sequeler
     yt-dlp # CLI to download multimedia from multiple services
+    ffmpeg-full
     pika-backup # Borg backup frontend
     gnome-secrets # Secrets manager
     aria2 # Download manager
-    ffmpeg-full
     killall
     aichat # AI chat client
     bottom # System Monitor
@@ -48,7 +46,6 @@
     freetube # Youtube client
     telegram-desktop # Chat app
     prismlauncher
-    imagemagick
     eloquent
     shattered-pixel-dungeon
   ];
@@ -73,7 +70,6 @@
   boot.kernelModules = [ "kvm-intel" "v4l2loopback" "snd-aloop" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
-    perf
   ];
   boot.extraModprobeConfig = ''
     # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
