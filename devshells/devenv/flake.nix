@@ -39,7 +39,10 @@
           # Kernels, runtimes and tools
           ops
           bun
+          qt6.full
           slint-viewer
+          msitools # Make MSIs
+          osslsigncode # Sign MSIs
         ]; # buildInputs
         nativeBuildInputs = with pkgs; [
           pkg-config
