@@ -13,7 +13,6 @@
     };
 
   environment.systemPackages = with pkgs; [
-    gnupg
     nix-index
     onefetch
     status-im
@@ -29,10 +28,10 @@
     pika-backup # Borg backup frontend
     gnome-secrets # Secrets manager
     aria2 # Download manager
-    killall
     aichat # AI chat client
     bottom # System Monitor
     brave # Web browser
+    tor-browser
     keypunch # Touch-typing tutor
     blender # 3D modelling software
     exhibit # Blender models viewer
@@ -66,7 +65,6 @@
       };
     };
   };
-  boot.kernelPackages = pkgs.linuxPackages_6_16;
   boot.kernelModules = [ "kvm-intel" "v4l2loopback" "snd-aloop" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
@@ -82,7 +80,7 @@
 
   environment.variables = {
     EDITOR = "hx";
-    VISUAL = "hx";
+    VISUAL = "gnome-text-editor";
     PAGER = "less";
     BROWSER = "brave";
   };

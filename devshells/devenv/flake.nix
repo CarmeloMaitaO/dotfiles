@@ -25,6 +25,7 @@
           # Nim
           nim
           nimble
+          nim-atlas
           nph
           # Zig
           zig
@@ -32,17 +33,18 @@
           rustc
           cargo
           # LLVM
-          clang_21
-          lldb_21
+          libclang
+          lldb
           # Databases
           sqlite
           # Kernels, runtimes and tools
-          ops
-          bun
-          qt6.full
-          slint-viewer
+          ops # Nanovms unikernels
+          bun # JS runtime/bundler/etc...
+          qt6.full # GUI framework
+          slint-viewer # GUI framework tool
           msitools # Make MSIs
           osslsigncode # Sign MSIs
+          androidenv.androidPkgs.ndk-bundle # Android NDK tools
         ]; # buildInputs
         nativeBuildInputs = with pkgs; [
           pkg-config
