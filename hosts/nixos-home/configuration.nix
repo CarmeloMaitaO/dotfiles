@@ -47,6 +47,7 @@
     prismlauncher
     eloquent
     shattered-pixel-dungeon
+    komikku
   ];
 
   boot.loader = {
