@@ -27,31 +27,35 @@
           nimble
           nim-atlas
           nph
-          # Zig
-          zig
-          # Rust
-          rustc
-          cargo
           # LLVM
+          clang
           libclang
           lldb
+          emscripten
           # Databases
           sqlite
           # Kernels, runtimes and tools
-          ops # Nanovms unikernels
+          cmake
           bun # JS runtime/bundler/etc...
-          qt6.full # GUI framework
-          slint-viewer # GUI framework tool
           msitools # Make MSIs
           osslsigncode # Sign MSIs
           androidenv.androidPkgs.ndk-bundle # Android NDK tools
+          # Raylib
+          xorg.libX11
+          xorg.libX11.dev
+          xorg.libXcursor
+          xorg.libXi
+          xorg.libXinerama
+          xorg.libXrandr
         ]; # buildInputs
         nativeBuildInputs = with pkgs; [
           pkg-config
         ]; # nativeBuildInputs
         shellHook = ''
           export PATH=$PATH:$HOME/.nimble/bin
+          alias 'node'='bun'
         ''; # shellHook
+        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.alsa-lib];
       }; # devShells.default
     }; # perSystem
 
