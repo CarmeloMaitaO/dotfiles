@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i 'nim e --hints:off' -p nim
+#! nix-shell -i 'nim e --hints:off' -p nim ffmpeg
 mode = ScriptMode.Silent
 import std/os
 

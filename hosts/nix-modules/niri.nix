@@ -1,33 +1,36 @@
 { config, lib, pkgs, ... }:
 {
   options = {
-    gnome.enable = lib.mkEnableOption "Enables the Gnome DE";
+    niriWM.enable = lib.mkEnableOption "Enables the Niri WM";
   };
 
-  config = lib.mkIf config.gnome.enable {
+  config = lib.mkIf config.niriWM.enable {
     services = {
       displayManager.gdm = {
         enable = true;
         wayland = true;
       }; # displayManager.gdm
-      desktopManager.gnome = {
-        enable = true;
-      }; # desktopManager.gnome
     }; # services.xserver
     programs.dconf = {
       enable = true;
     };
-    environment.gnome = {
-      excludePackages = with pkgs; [
-        gnome-tour
-        gnome-console
-        xterm
-        totem
-        epiphany
-      ];
+    programs.niri = {
+      enable = true;
+      useNautilus = true;
     };
+    programs.xwayland = {
+      enable = true;
+    };
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+      dconf-editor
+      nautilus
+      quickshell
+      fuzzel
+    ];
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
+      PROTON_ENABLE_WAYLAND = "1";
       # LIBGL_ALWAYS_SOFTWARE = "true";
     };
     # environment.variables = {

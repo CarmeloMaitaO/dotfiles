@@ -13,41 +13,36 @@
     };
 
   environment.systemPackages = with pkgs; [
-    nix-index
+    gemini-cli
+    bc
+    contrast
     onefetch
-    status-im
     p7zip-rar
     hextazy
     helix
     git # SVC
     nitch # System fetch made in Nim
-    ghostty # Terminal
-    sequeler
+    rio # Terminal
     yt-dlp # CLI to download multimedia from multiple services
     ffmpeg-full
     pika-backup # Borg backup frontend
     gnome-secrets # Secrets manager
     aria2 # Download manager
-    aichat # AI chat client
     bottom # System Monitor
     brave # Web browser
     tor-browser
     keypunch # Touch-typing tutor
     blender # 3D modelling software
-    exhibit # Blender models viewer
     onlyoffice-desktopeditors # Office suite
-    dconf-editor # dconf explorer and editor
     clapper # Multimedia player
     clapper-enhancers
     cartridges # Game launcher
     foliate # Ebook reader
-    adwsteamgtk # GTK for Steam
     freetube # Youtube client
     telegram-desktop # Chat app
     prismlauncher
     eloquent
     shattered-pixel-dungeon
-    komikku
   ];
 
   boot.loader = {
@@ -90,8 +85,17 @@
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_DATA_HOME   = "$HOME/.local/share";
     XDG_STATE_HOME  = "$HOME/.local/state";
-
     XDG_BIN_HOME = "$HOME/.local/bin";
+
+    XDG_DESKTOP_DIR="$HOME/Desktop";
+    XDG_DOCUMENTS_DIR="$HOME/Documents";
+    XDG_DOWNLOAD_DIR="$HOME/Downloads";
+    XDG_MUSIC_DIR="$HOME/Music";
+    XDG_PICTURES_DIR="$HOME/Pictures";
+    XDG_PUBLICSHARE_DIR="$HOME/Public";
+    XDG_TEMPLATES_DIR="$HOME/Templates";
+    XDG_VIDEOS_DIR="$HOME/Videos";
+    
     PATH = [ 
       "${XDG_BIN_HOME}"
     ];
@@ -112,6 +116,7 @@
   torcontainer.enable = true;
   printing.enable = true;
   gnome.enable = true;
+  niriWM.enable = true;
   nixpkgsUnstable = {
     enable = true;
     packages = [
@@ -128,10 +133,10 @@
  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     liberation_ttf
     corefonts
   ];
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

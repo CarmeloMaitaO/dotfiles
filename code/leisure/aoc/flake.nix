@@ -30,20 +30,9 @@
           emscripten
           lldb
           libclang
-          # Libraries
-          qt6.full
-          # Databases
-          sqlite
-          # Runtimes and tools
-          bun # JS runtime/bundler/etc...
-          ops # unikernel
         ]; # buildInputs
-        nativeBuildInputs = with pkgs; [
-          pkg-config
-        ]; # nativeBuildInputs
         shellHook = ''
           export PATH=$PATH:$HOME/.nimble/bin
-          alias 'node'='bun'
         ''; # shellHook
       }; # devShells.default
     }; # perSystem

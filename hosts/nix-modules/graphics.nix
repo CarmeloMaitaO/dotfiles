@@ -6,19 +6,21 @@
 
   config = lib.mkIf config.graphics.enable {
     # Graphics
+    services.xserver.videoDrivers = [ "modesetting" ];
     hardware.graphics = {
       enable = true;
-      enable32Bit = true;
       extraPackages = with pkgs; [
         vpl-gpu-rt
-	intel-media-sdk
-	intel-vaapi-driver
-	libvdpau-va-gl
-      ];
-      extraPackages32 = with pkgs; [
-        intel-vaapi-driver
+        intel-media-driver
+        intel-compute-runtime
       ];
     };
+
+    environment.sessionVariables = {
+      LIBVA_DRIVER_NAME = "iHD";
+    };
+
+    hardware.enableRedistributableFirmware = true;
 
   };
 }

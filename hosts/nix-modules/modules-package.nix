@@ -7,6 +7,7 @@
     ./virtualisation.nix
     ./printing.nix
     ./gnome.nix
+    ./niri.nix
     ./locale-ve.nix
     ./keymap-us.nix
     ./net.nix

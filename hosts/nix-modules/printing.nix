@@ -39,7 +39,7 @@
       extraBackends = with pkgs; [
         sane-airscan
         hplipWithPlugin
-        epkowa
+        #epkowa
         utsushi
       ];
     };

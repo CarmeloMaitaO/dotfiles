@@ -6,6 +6,9 @@
 
   config = lib.mkIf config.nixconf.enable {
     # Nix
+    environment.systemPackages = with pkgs; [
+      nix-index
+    ];
     nixpkgs.config = {
       allowUnfree = true;
       allowBroken = true;
