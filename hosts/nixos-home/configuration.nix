@@ -39,7 +39,6 @@
     cartridges # Game launcher
     foliate # Ebook reader
     freetube # Youtube client
-    telegram-desktop # Chat app
     prismlauncher
     eloquent
     shattered-pixel-dungeon

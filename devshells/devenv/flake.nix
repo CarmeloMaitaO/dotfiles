@@ -2,8 +2,8 @@
   description = "Nim-centric development environment";
 
   inputs = {
-    # Latest commit in the branch nixos-25.05
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    # Latest commit in the branch nixos-25.11
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     # Flake-parts
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
@@ -25,18 +25,13 @@
           nimble
           nim-atlas
           nph
-          # LLVM
-          clang
-          emscripten
-          lldb
-          libclang
-          # Libraries
-          qt6.full
-          # Databases
+          # Compilers and bundlers
+          zig
+          bun
+          # File/Application formats and their tooling
           sqlite
-          # Runtimes and tools
-          bun # JS runtime/bundler/etc...
-          ops # unikernel
+          # Deployment
+          ops # Nanos unikernel
         ]; # buildInputs
         nativeBuildInputs = with pkgs; [
           pkg-config
