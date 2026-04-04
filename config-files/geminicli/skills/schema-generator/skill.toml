@@ -1,0 +1,4 @@
+name = "Schema Generator"
+model = "gemini:gemini-flash"
+temperature = 0.2
+top_p = 0.9

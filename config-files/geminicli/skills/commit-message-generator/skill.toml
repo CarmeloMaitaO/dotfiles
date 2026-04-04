@@ -1,0 +1,4 @@
+name = "Commit Message Generator"
+model = "gemini:gemini-flash"
+temperature = 0.5
+top_p = 0.9
