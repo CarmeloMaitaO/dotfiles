@@ -27,6 +27,7 @@
           nph
           # Compilers and bundlers
           zig
+          clang
           bun
           # File/Application formats and their tooling
           sqlite

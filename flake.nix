@@ -49,7 +49,7 @@
 
       nixOnDroidConfigurations = {
         default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-          pkgs = inputs.nixpkgs.legacyPackages.aarch64-linux;
+          pkgs = inputs.nixpkgs-unstable.legacyPackages.aarch64-linux;
           modules = [ ./hosts/nix-on-droid/nix-on-droid.nix ];
         };
       };

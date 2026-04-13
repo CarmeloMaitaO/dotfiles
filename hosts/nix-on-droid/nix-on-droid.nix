@@ -2,7 +2,7 @@
 {
   environment.packages = with pkgs; [
     gemini-cli
-    ssh
+    openssh
     zip
     nodejs
     gnutar
@@ -21,11 +21,6 @@
   user.shell = "${pkgs.nushell}/bin/nu";
 
   nix.extraOptions = "experimental-features = nix-command flakes";
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken = true;
-    allowInsecure = true;
-  };
 
   system.stateVersion = "24.05";
   environment.etcBackupExtension = ".backup";
