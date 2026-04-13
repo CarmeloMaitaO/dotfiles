@@ -1,4 +1,0 @@
-name = "Business Chief Officers"
-model = "gemini:gemini-flash"
-temperature = 0.7
-top_p = 0.95

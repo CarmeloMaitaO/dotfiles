@@ -1,31 +1,20 @@
 # Gemini CLI Configuration for Dotfiles Repository
 
-This directory (`.gemini/`) and its contents are part of the dotfiles repository, specifically managing configurations for the Gemini Command Line Interface (CLI).
+This repository serves as a centralized management hub for system configurations, development tools, and hobby projects across Linux and Windows environments.
 
-## Skills Management
+## Repository Structure & Purpose
 
-Gemini CLI skills are defined and managed as configuration files directly within this repository to allow for version control and consistent deployment across desktop environments.
+- `code/`: Contains hobby projects, automation scripts, and utility code (e.g., Advent of Code, game automation).
+- `config-files/`: Managed configuration files for various applications, including Gemini CLI skills, terminal emulators (Rio), text editors (Helix), and system-level configurations.
+- `devshells/`: Nix-based development environment definitions for consistent tooling.
+- `dist/`: Build artifacts (e.g., packaged `.skill` files).
+- `hosts/`: NixOS and Nix-on-Droid configurations, modules, and hardware-specific settings.
 
-**Source Location:**
-All Gemini CLI skill definitions are located under:
-`config-files/geminicli/skills/`
+## Skill Management
 
-Each skill is represented by a subdirectory containing:
-*   `skill.toml`: Metadata and configuration for the skill (e.g., model, temperature, top_p, name).
-*   `main.md`: The main content and prompt for the skill.
+Gemini CLI skills are maintained within `config-files/geminicli/skills/`. To ensure these are available globally, a symbolic link connects the user's `~/.gemini/skills/` directory to this repository's skill path.
 
-## Global Access
-
-To make these repository-managed skills available globally to the Gemini CLI, a symbolic link has been established. Your global Gemini CLI configuration directory (`~/.gemini/skills`) is symlinked to the skills directory within this repository:
-
-`~/.gemini/skills` points to `/home/chiguire/Documents/Projects/dotfiles/config-files/geminicli/skills`
-
-This setup ensures that any Gemini CLI command executed will use the skills defined and maintained in this dotfiles repository.
-
-## Editing Skills
-
-Skills should be edited directly in their source location within this repository (`config-files/geminicli/skills/<skill_name>/`). Changes made here will automatically reflect in your global Gemini CLI usage due to the symbolic link.
-
-## Default Model
-
-All skills configured in this repository are currently set to use the `gemini:gemini-flash` model as their default. This can be modified per skill by editing its respective `skill.toml` file.
+### Development Workflow
+1. **Editing**: Modify configuration files and skill definitions directly within this repository.
+2. **Deployment**: Changes to Nix configurations and system files are applied via standard Nix workflows (e.g., `nixos-rebuild`, `home-manager`).
+3. **Skills**: After modifying or creating a `.skill` file, run `/skills reload` in an active Gemini CLI session to apply updates.

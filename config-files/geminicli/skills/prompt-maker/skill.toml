@@ -1,4 +1,0 @@
-name = "Prompt Maker"
-model = "gemini:gemini-flash"
-temperature = 0.7
-top_p = 0.9

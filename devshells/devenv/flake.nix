@@ -31,7 +31,7 @@
           # File/Application formats and their tooling
           sqlite
           # Deployment
-          ops # Nanos unikernel
+          kraft # Nanos unikernel
         ]; # buildInputs
         nativeBuildInputs = with pkgs; [
           pkg-config

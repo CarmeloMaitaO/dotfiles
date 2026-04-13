@@ -4,6 +4,6 @@
     isNormalUser = true;
     description = "chiguire";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "scanner" "lp" "adbusers" "video" "render" ];
-    shell = pkgs.bash;
+    shell = pkgs.dash;
   }; # users.users.chiguire
 }

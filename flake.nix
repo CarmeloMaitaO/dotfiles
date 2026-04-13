@@ -11,6 +11,10 @@
     nixpkgs-unstable = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     }; # nipkgs-unstable
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     }; # flake-parts
@@ -42,6 +46,13 @@
           ];
         }; # nixos-home
       }; # nixosConfigurations
+
+      nixOnDroidConfigurations = {
+        default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+          pkgs = inputs.nixpkgs.legacyPackages.aarch64-linux;
+          modules = [ ./hosts/nix-on-droid/nix-on-droid.nix ];
+        };
+      };
 
       templates = {
         devenv = {

@@ -13,7 +13,10 @@
     };
 
   environment.systemPackages = with pkgs; [
-    gemini-cli
+    zip
+    nodejs # For Gemini CLI
+    vivid
+    nushell
     bc
     contrast
     onefetch
@@ -104,7 +107,7 @@
   keymapUS.enable = true;
   net.enable = true;
   nixconf.enable = true;
-  nushell.enable = true;
+  # nushell.enable = true;
   starship.enable = true;
   steam.enable = true;
   flatpak.enable = true;
@@ -120,6 +123,7 @@
     enable = true;
     packages = [
       "euphonica"
+      "gemini-cli"
     ];
   };
   services.samba = {

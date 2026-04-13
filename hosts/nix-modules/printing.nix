@@ -8,26 +8,26 @@
     # Printing 
     services.printing = {
       enable = true;
-      drivers = with pkgs; [
-        cups-filters
-        cups-browsed
-        gutenprint
-        gutenprintBin
-        hplip
-        hplipWithPlugin
-        postscript-lexmark
-        samsung-unified-linux-driver
-        splix
-        foomatic-db
-        foomatic-db-engine
-        foomatic-db-ppds
-        foomatic-db-nonfree
-        foomatic-db-ppds-withNonfreeDb
-        brlaser
-        brgenml1lpr
-        brgenml1cupswrapper
-        cnijfilter2
-      ];
+      # drivers = with pkgs; [
+      #   cups-filters
+      #   cups-browsed
+      #   gutenprint
+      #   gutenprintBin
+      #   hplip
+      #   hplipWithPlugin
+      #   postscript-lexmark
+      #   samsung-unified-linux-driver
+      #   splix
+      #   foomatic-db
+      #   foomatic-db-engine
+      #   foomatic-db-ppds
+      #   foomatic-db-nonfree
+      #   foomatic-db-ppds-withNonfreeDb
+      #   brlaser
+      #   brgenml1lpr
+      #   brgenml1cupswrapper
+      #   cnijfilter2
+      # ];
     };
     environment = {
       systemPackages = with pkgs; [
