@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 {
   environment.packages = with pkgs; [
+    gemini-cli
+    ssh
     zip
     nodejs
     gnutar
@@ -12,7 +14,6 @@
     nitch
     helix
     git
-    man
     starship
     nushell
   ]; # environment.system.packages
@@ -20,6 +21,11 @@
   user.shell = "${pkgs.nushell}/bin/nu";
 
   nix.extraOptions = "experimental-features = nix-command flakes";
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+    allowInsecure = true;
+  };
 
   system.stateVersion = "24.05";
   environment.etcBackupExtension = ".backup";
