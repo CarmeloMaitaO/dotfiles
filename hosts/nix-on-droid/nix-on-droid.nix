@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 {
   environment.packages = with pkgs; [
+    libsecret
     unstable.gemini-cli
     openssh
     zip
@@ -22,15 +23,6 @@
 
   # Nix-on-Droid Android Integration
   android-integration.termux-open.enable = true;
-
-  # Environment Variables
-  environment.variables = {
-    EDITOR = "hx";
-    PAGER = "less";
-    NIXPKGS_ALLOW_UNFREE = "1";
-    # Set LS_COLORS for Gruvbox Dark Hard
-    LS_COLORS = "${pkgs.vivid}/bin/vivid generate gruvbox-dark-hard";
-  };
 
   # Terminal Colors (Gruvbox Dark Hard)
   terminal.colors = {
