@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 {
   environment.packages = with pkgs; [
-    libsecret
     unstable.gemini-cli
     openssh
     zip
@@ -18,8 +17,6 @@
     starship
     nushell
   ]; # environment.system.packages
-
-  user.shell = "${pkgs.nushell}/bin/nu";
 
   # Nix-on-Droid Android Integration
   android-integration.termux-open.enable = true;
