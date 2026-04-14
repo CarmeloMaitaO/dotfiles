@@ -49,7 +49,17 @@
 
       nixOnDroidConfigurations = {
         default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-          pkgs = inputs.nixpkgs-unstable.legacyPackages.aarch64-linux;
+          pkgs = import inputs.nixpkgs {
+            system = "aarch64-linux";
+            overlays = [
+              (final: prev: {
+                unstable = import inputs.nixpkgs-unstable {
+                  system = "aarch64-linux";
+                  config.allowUnfree = true;
+                };
+              })
+            ];
+          };
           modules = [ ./hosts/nix-on-droid/nix-on-droid.nix ];
         };
       };
