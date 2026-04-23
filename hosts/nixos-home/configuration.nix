@@ -13,7 +13,7 @@
     };
 
   environment.systemPackages = with pkgs; [
-    zip
+    zip    # For Gemini CLI
     nodejs # For Gemini CLI
     vivid
     nushell
@@ -22,6 +22,7 @@
     onefetch
     p7zip-rar
     hextazy
+    seer # GDB frontend
     helix
     git # SVC
     nitch # System fetch made in Nim
@@ -41,7 +42,6 @@
     clapper-enhancers
     cartridges # Game launcher
     foliate # Ebook reader
-    freetube # Youtube client
     prismlauncher
     eloquent
     shattered-pixel-dungeon
@@ -122,6 +122,7 @@
   nixpkgsUnstable = {
     enable = true;
     packages = [
+      "freetube"
       "euphonica"
       "gemini-cli"
     ];

@@ -1,21 +1,25 @@
 ---
 name: software-engineering
-description: Unified software engineering skill focused on state-machine composition, requirement-based design, and robust development in Nim (Futhark, std/jsffi, Karax, Mummy), Nix (Flakes), Zig (forge), Bun, C, C++, JS, SQL, Typst, D2, and WGSL.
+description: Unified software engineering skill focused on state-machine composition, requirement-based design, and robust development in Nim (Henka, std/jsffi, Karax, Mummy), Nix (Flakes), Zig (forge), Bun, C, C++, JS, SQL, Typst, D2.
 ---
-
 # Software Engineering Unified Skill
 
 This skill provides comprehensive guidance for software engineering tasks, emphasizing state-machine composition and clean room design methodologies.
 
+## Documentation & Comment Policy
+- **Symbol Documentation**: All symbols must have documentation comments (e.g., `##` in Nim, Doxygen for C/C++/JS).
+- **File Headers**: Only write normal (non-documentation) comments at the top of each file. These must be descriptive, explaining the file's purpose, mechanism, flow, and design intent.
+
 ## References Organization
 
-- `references/general/`: General software engineering, state-machine composition, and requirement specification.
+- `references/general/`: General software engineering, state-machine composition, requirement specification, and repository management.
 - `references/languages/`: Language/Tool-specific best practices.
 
 ### Current Modules
 
 #### General Engineering
 - **Design Principles & Requirements**: See [references/general/design-principles.md](references/general/design-principles.md)
+- **Repository Management**: See [references/general/repo-manager/SKILL.md](references/general/repo-manager/SKILL.md)
 
 #### Languages & Tooling
 - **Nim**: [references/languages/nim/nim-best-practices.md](references/languages/nim/nim-best-practices.md)
@@ -26,7 +30,6 @@ This skill provides comprehensive guidance for software engineering tasks, empha
 - **SQL (SQLite)**: [references/languages/sql/best-practices.md](references/languages/sql/best-practices.md)
 - **Typst**: [references/languages/typst/best-practices.md](references/languages/typst/best-practices.md)
 - **D2**: [references/languages/d2/best-practices.md](references/languages/d2/best-practices.md)
-- **WGSL**: [references/languages/wgsl/best-practices.md](references/languages/wgsl/best-practices.md)
 
 ## Workflow
 
@@ -36,7 +39,8 @@ This skill provides comprehensive guidance for software engineering tasks, empha
     - Use Nim as build system (compiling C/C++/JS). 
     - Use Zig (forge) for C/C++ compilation. 
     - Use Karax/Mummy for web development. 
-    - Use Futhark/jsffi for interop. 
+    - Use Henka/jsffi for interop. 
     - Use Bun for JS post-processing.
 4. **Phase 4: Infrastructure**: Use Colmena for deployment; Unikraft for target platform.
 5. **Phase 5: SQL/Docs/Diagrams**: Use `.sql` for prepared statements; follow template-first workflows for Typst/D2 documentation.
+
