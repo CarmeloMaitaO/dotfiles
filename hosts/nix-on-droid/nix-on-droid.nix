@@ -1,17 +1,14 @@
 { config, lib, pkgs, ... }:
 {
   environment.packages = with pkgs; [
-    unstable.gemini-cli
+    pinentry-curses
+    pinentry-tty
+    gnupg
     openssh
-    zip
-    nodejs
-    gnutar
     vivid
     bc
     onefetch
-    p7zip-rar
     hextazy
-    nitch
     helix
     git
     starship
