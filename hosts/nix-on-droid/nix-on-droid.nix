@@ -2,18 +2,20 @@
 {
   environment.packages = with pkgs; [
     pinentry-curses
-    pinentry-tty
     gnupg
     openssh
     vivid
     bc
     onefetch
     hextazy
-    helix
     git
     starship
     nushell
+    helix
+    # zellij
   ]; # environment.system.packages
+
+  user.shell = "${lib.getExe pkgs.nushell}";
 
   # Nix-on-Droid Android Integration
   android-integration.termux-open.enable = true;
