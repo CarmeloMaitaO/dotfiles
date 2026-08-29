@@ -1,89 +1,14 @@
 {
-  description = ''
-  A centralized repository of my dotfiles, automation scripts, and hobby
-  projects (browser startpages, gaming automation, ...) for Linux and Windows
-  '';
+  description = "A centralized repository of my dotfiles, scripts and hobby projects for Android, Linux and Windows";
 
   inputs = {
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-25.11";
-    }; # nixpkgs
-    nixpkgs-unstable = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-    }; # nipkgs-unstable
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-    }; # flake-parts
-  }; # inputs
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+  };
 
-  outputs = inputs @ { flake-parts, ... }:
-  flake-parts.lib.mkFlake { inherit inputs; }
-  {
-    systems = [
-      "x86_64-linux"
-    ]; # systems
-
-    perSystem = { pkgs, ... }: {
-      #packages.miPaquete = pkgs.etc;
-      # devShells.default = pkgs.mkShell {
-      #   packages = [ self'.packages.miPaquete ];
-      # };
-    }; # perSystem
-    
-    flake = {
-      nixosConfigurations = {
-        nixos-home = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/nixos-home/configuration.nix
-            ./hosts/nix-modules/modules-package.nix
-            ./hosts/nix-modules/users/chiguire.nix
-          ];
-        }; # nixos-home
-      }; # nixosConfigurations
-
-      nixOnDroidConfigurations = {
-        default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-          pkgs = import inputs.nixpkgs {
-            system = "aarch64-linux";
-            overlays = [
-              (final: prev: {
-                unstable = import inputs.nixpkgs-unstable {
-                  system = "aarch64-linux";
-                  config.allowUnfree = true;
-                };
-              })
-            ];
-          };
-          modules = [ ./hosts/nix-on-droid/nix-on-droid.nix ];
-        };
-      };
-
-      templates = {
-        devenv = {
-          path = ./devshells/devenv;
-          description = ''
-            Nim-centric development environment with additional support for:
-
-            - JS
-            - Zig
-            - C
-            - C++
-            - Rust
-          '';
-        }; # devenv
-        flakeparts = {
-          path = ./devshells/flakeparts;
-          description = "Flake-parts template";
-        }; # flakeparts
-      }; # templates
-    }; # flake
-
-  }; # flake-parts.lib.mkflake
-
+  outputs = inputs: inputs.flake-parts.lib.mkFlake
+  {inherit inputs;}
+  (inputs.import-tree ./modules);
 }

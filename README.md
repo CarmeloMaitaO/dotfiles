@@ -1,11 +1,11 @@
 # Dotfiles
-A centralized repository of my dotfiles, automation scripts, and hobby projects (browser startpages, gaming automation, ...) for Linux, Android and Windows
+A centralized repository of my dotfiles, scripts and hobby projects for Android, Linux and Windows
 
 ## Usage
 
 ### Linux
 
-`sudo nixos-rebuild boot --flake path/to/flake --impure`
+`sudo nixos-rebuild boot --flake path/to/flake#capybara`
 
 ### Android
 
