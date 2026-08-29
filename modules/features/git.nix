@@ -16,7 +16,7 @@
         };
         user = {
           name = "Carmelo Maita";
-          email = "carmeloaugustomaitaorlando@gmail.com"
+          email = "carmeloaugustomaitaorlando@gmail.com";
         };
       }];
     };

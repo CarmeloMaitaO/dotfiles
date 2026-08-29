@@ -3,7 +3,7 @@
     environment.systemPackages = with pkgs; [
       dnsmasq
     ];
-    virtualisation.libvirt = {
+    virtualisation.libvirtd = {
       enable = true;
       qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
     };

@@ -1,7 +1,7 @@
 {self, inputs, ...}: {
   flake.nixosModules.audio = {pkgs, lib, ...}: {
     environment.systemPackages = with pkgs; [
-      helvum
+      crosspipe
       pavucontrol
     ];
     services = {
@@ -9,7 +9,7 @@
       pipewire = {
         enable = true;
         alsa.enable = true;
-        alsa.support32bit = true;
+        alsa.support32Bit = true;
         pulse.enable = true;
         jack.enable = true;
       };

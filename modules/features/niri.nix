@@ -8,15 +8,15 @@
     services = {
       displayManager.gdm = {
         enable = true;
-        wayland = true;
       };
-      programs.dconf = {
-        enable = true;
-      };
+    };
+    programs.dconf = {
+      enable = true;
     };
   };
   perSystem = {pkgs, lib, self', ...}: {
     packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
+      inherit pkgs;
       settings = {
         spawn-at-startup = [
           (lib.getExe self'.packages.myNoctalia)
@@ -28,8 +28,8 @@
         layout.gaps = 5;
         binds = {
           "Mod+Return".spawn-sh = lib.getExe pkgs.alacritty;
-          "Mod+S".spawn-sh = "${lib.getExe self'.packages..myNoctalia} ipc call launcher toggle";
-          "Mod+Q".close-window = null;
+          "Mod+Q".close-window = {};
+          "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
         };
       }; # settings
     }; # packages.myNiri

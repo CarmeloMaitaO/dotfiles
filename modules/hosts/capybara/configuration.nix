@@ -1,6 +1,7 @@
 {self, inputs, ...}: {
-  flake.nixosModules.capybara = {pkgs, lib, ...}: {
+  flake.nixosModules.capybara = {pkgs, lib, config, ...}: {
     imports = [
+      self.nixosModules.nixconf
       self.nixosModules.capybaraHardware
       self.nixosModules.niri
       self.nixosModules.user
@@ -13,8 +14,10 @@
       self.nixosModules.virtualisation
     ];
 
-    nix.settings.experimental-features = [ "nix-command", "flakes" ];
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelModules = [ "kvm-intel" "v4l2loopback" "snd-aloop" ];
     boot.extraModulePackages = with config.boot.kernelPackages; [
       v4l2loopback
@@ -27,6 +30,7 @@
     '';
     networking = {
       hostName = "Capybara";
+      networkmanager.enable = true;
       nameservers = [
         "1.1.1.1"
         "1.0.0.1"
@@ -61,7 +65,7 @@
       };
     };
 
-    font.packages = with pkgs; [
+    fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
