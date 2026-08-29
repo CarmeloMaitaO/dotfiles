@@ -76,6 +76,7 @@
     system.stateVersion = "26.05";
 
     environment.systemPackages = with pkgs; [
+      zellij
       alacritty
       chawan
       helix
@@ -117,6 +118,10 @@
         LC_TELEPHONE = "es_VE.UTF-8";
         LC_TIME = "es_VE.UTF-8";
       };
+    };
+    services.xserver.xkb = {
+      layout = "us";
+      variant = "alt-intl";
     };
   };
 }
