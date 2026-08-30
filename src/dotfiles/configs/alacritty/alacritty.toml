@@ -1,0 +1,10 @@
+[general]
+import = [
+  "~/.config/alacritty/gruvbox-theme.toml"
+]
+[font]
+size = 14
+[terminal]
+shell = "zellij"
+[window]
+decorations = "None"
