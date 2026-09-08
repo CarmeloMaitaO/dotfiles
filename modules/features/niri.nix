@@ -9,6 +9,8 @@
       displayManager.gdm = {
         enable = true;
       };
+      gvfs.enable = true;
+      udisks2.enable = true;
     };
     programs.dconf = {
       enable = true;
@@ -27,12 +29,20 @@
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
         input.keyboard = {
           xkb.layout = "us";
-          xkb.variant = "alt-intl";
+          xkb.variant = "altgr-intl";
         };
         layout.gaps = 5;
         binds = {
           "Mod+Return".spawn-sh = lib.getExe pkgs.alacritty;
           "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+          "Mod+Print".spawn-sh = ''
+            ${lib.getExe pkgs.grim}
+          '';
+          "Mod+Shift+Print".spawn-sh = ''
+            ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp} -w 0)"
+          '';
+          "Mod+O".toggle-overview = {};
+          "Mod+Shift+E".quit = {};
           "Mod+Q".close-window = {};
           "Mod+F".maximize-column = {};
           "Mod+Shift+F".fullscreen-window = {};

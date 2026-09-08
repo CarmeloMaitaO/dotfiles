@@ -76,6 +76,7 @@
     system.stateVersion = "26.05";
 
     environment.systemPackages = with pkgs; [
+      starship
       zellij
       alacritty
       chawan
@@ -121,7 +122,7 @@
     };
     services.xserver.xkb = {
       layout = "us";
-      variant = "alt-intl";
+      variant = "altgr-intl";
     };
   };
 }
